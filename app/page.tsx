@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, CheckCircle2, Star, Phone, Shield, Award, Clock, Wrench, ChevronRight } from "lucide-react";
+import { ArrowRight, Star, Phone, Shield, Award, Clock, Wrench, ChevronRight, Play } from "lucide-react";
+import VideoReel from "@/components/VideoReel";
 
 function useCountUp(target: number, duration = 2000, start = false) {
   const [count, setCount] = useState(0);
@@ -101,104 +102,72 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-screen bg-[#0A0A0A] flex items-center overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#D9001B]/40 to-transparent" />
-        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-[#D9001B]/20 to-transparent" />
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
+      {/* HERO — full-screen video reel */}
+      <section className="relative min-h-screen bg-[#0A0A0A] flex items-end overflow-hidden">
+        <VideoReel />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div
-                className="inline-flex items-center gap-2 bg-[#D9001B]/10 border border-[#D9001B]/20 rounded-full px-4 py-1.5 mb-8"
-                style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.6s ease" }}
-              >
-                <span className="w-2 h-2 bg-[#D9001B] rounded-full animate-pulse" />
-                <span className="text-[#D9001B] text-xs font-semibold uppercase tracking-wider">Trusted Local Experts</span>
-              </div>
-
-              <h1
-                className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tight"
-                style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease 0.1s" }}
-              >
-                Transform<br /><span className="text-[#D9001B]">Your Home.</span><br />Elevate<br />Your Life.
-              </h1>
-
-              <p
-                className="mt-7 text-lg text-white/60 leading-relaxed max-w-lg"
-                style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.25s" }}
-              >
-                Expert installation of windows, doors, conservatories and more. We&apos;ve helped hundreds of homeowners create their dream home.
-              </p>
-
-              <div
-                className="mt-10 flex flex-wrap gap-4"
-                style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.35s" }}
-              >
-                <Link href="/contact" className="group flex items-center gap-3 bg-[#D9001B] hover:bg-[#A80015] text-white font-bold px-7 py-4 rounded transition-all duration-300">
-                  Get Free Quote <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link href="/projects" className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white font-semibold px-7 py-4 rounded transition-all duration-300">
-                  View Projects
-                </Link>
-              </div>
-
-              <div
-                className="mt-10 flex items-center gap-8"
-                style={{ opacity: heroVisible ? 1 : 0, transition: "all 0.7s ease 0.45s" }}
-              >
-                {[{ value: "500+", label: "Projects" }, { value: "15 yrs", label: "Experience" }, { value: "10 yr", label: "Guarantee" }].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <div className="text-white font-black text-xl">{s.value}</div>
-                    <div className="text-white/40 text-xs mt-0.5">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right side visual panel */}
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-40">
+          <div className="max-w-3xl">
+            {/* Live badge */}
             <div
-              className="hidden lg:block"
-              style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateX(0)" : "translateX(40px)", transition: "all 0.9s ease 0.2s" }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-8"
+              style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.6s ease" }}
             >
-              <div className="relative">
-                <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-8 relative">
-                  <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#D9001B] to-transparent" />
-                  <div className="grid grid-cols-2 gap-4">
-                    {services.slice(0, 4).map((s) => (
-                      <div key={s.title} className="bg-[#0A0A0A] border border-white/5 rounded-xl p-5 hover:border-[#D9001B]/30 transition-colors cursor-pointer">
-                        <div className="text-3xl mb-3">{s.icon}</div>
-                        <div className="text-white font-bold text-sm">{s.title}</div>
-                        <div className="text-white/40 text-xs mt-1 leading-relaxed line-clamp-2">{s.description.split('.')[0]}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-4 flex items-center justify-between p-4 bg-[#D9001B]/10 border border-[#D9001B]/20 rounded-xl">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 size={18} className="text-[#D9001B]" />
-                      <span className="text-white text-sm font-semibold">10-Year Guarantee</span>
-                    </div>
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => <Star key={i} size={13} className="text-yellow-400 fill-yellow-400" />)}
-                    </div>
-                  </div>
+              <Play size={11} className="text-[#D9001B] fill-[#D9001B]" />
+              <span className="text-white text-xs font-semibold uppercase tracking-wider">Watch Our Work</span>
+            </div>
+
+            <h1
+              className="text-6xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tight"
+              style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease 0.1s" }}
+            >
+              Transform<br /><span className="text-[#D9001B]">Your Home.</span>
+            </h1>
+
+            <p
+              className="mt-7 text-xl text-white/70 leading-relaxed max-w-xl"
+              style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.25s" }}
+            >
+              Expert installation of windows, doors, conservatories and more. Trusted by 500+ homeowners across the region.
+            </p>
+
+            <div
+              className="mt-10 flex flex-wrap gap-4"
+              style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.35s" }}
+            >
+              <Link href="/contact" className="group flex items-center gap-3 bg-[#D9001B] hover:bg-[#A80015] text-white font-bold px-8 py-4 rounded text-lg transition-all duration-300">
+                Get Free Quote <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/projects" className="flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-4 rounded text-lg transition-all duration-300">
+                View Projects
+              </Link>
+            </div>
+
+            {/* Stats strip */}
+            <div
+              className="mt-12 flex flex-wrap items-center gap-8"
+              style={{ opacity: heroVisible ? 1 : 0, transition: "all 0.7s ease 0.5s" }}
+            >
+              {[{ value: "500+", label: "Projects" }, { value: "15 yrs", label: "Experience" }, { value: "10 yr", label: "Guarantee" }, { value: "5★", label: "Rated" }].map((s, i) => (
+                <div key={s.label} className={`text-center ${i < 3 ? "pr-8 border-r border-white/20" : ""}`}>
+                  <div className="text-white font-black text-2xl">{s.value}</div>
+                  <div className="text-white/50 text-xs mt-0.5 uppercase tracking-wide">{s.label}</div>
                 </div>
-                <div className="absolute -bottom-5 -left-5 bg-[#D9001B] rounded-xl p-4 shadow-2xl shadow-red-900/50">
-                  <div className="text-white font-black text-2xl">500+</div>
-                  <div className="text-white/80 text-xs">Happy Customers</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-          <div className="w-5 h-8 border border-white/40 rounded-full flex justify-center pt-1.5">
-            <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
-          </div>
-        </div>
+        {/* Phone CTA floating bottom-right */}
+        <a
+          href="tel:+441234567890"
+          className="absolute bottom-8 right-8 z-20 hidden lg:flex items-center gap-3 bg-white text-[#0A0A0A] font-bold px-5 py-3 rounded-full shadow-2xl hover:bg-gray-100 transition-all text-sm"
+          style={{ opacity: heroVisible ? 1 : 0, transition: "all 0.7s ease 0.6s" }}
+        >
+          <Phone size={15} className="text-[#D9001B]" />
+          01234 567 890
+        </a>
       </section>
 
       {/* WHY CHOOSE US */}
