@@ -39,6 +39,14 @@ export default function WindowsPage() {
         { q: "What is the best type of window for energy efficiency?", a: "Triple glazed A++-rated windows offer the best thermal performance. For most homes, A-rated double glazing provides excellent efficiency at a more accessible price point." },
         { q: "How much do new windows cost?", a: "Costs vary based on size, style, material and number of windows. We offer free, transparent quotes with no hidden extras. Contact us for a personalised estimate." },
       ]}
+      heroImage="/images/windows/white-casement-red-brick.jpg"
+      galleryImages={[
+        "/images/windows/victorian-sash-red-door.jpg",
+        "/images/windows/sash-magnolia.jpg",
+        "/images/windows/anthracite-casement.jpg",
+        "/images/windows/casement-rendered-house.jpg",
+        "/images/windows/sage-green-install.jpg",
+      ]}
     />
   );
 }

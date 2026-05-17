@@ -39,6 +39,12 @@ export default function DoorsPage() {
         { q: "Can I choose my own colour and glass design?", a: "Absolutely. We offer hundreds of colour combinations and glass panel designs so you can create a door that's completely personalised to your home." },
         { q: "Do you install cat flaps or letterboxes?", a: "Yes — we can add letterboxes, cat flaps, door knockers and a wide range of hardware as part of your installation." },
       ]}
+      heroImage="/images/doors/anthracite-composite.jpg"
+      galleryImages={[
+        "/images/doors/sage-green-composite.jpg",
+        "/images/doors/white-composite-glazed.jpg",
+        "/images/doors/white-stable.jpg",
+      ]}
     />
   );
 }

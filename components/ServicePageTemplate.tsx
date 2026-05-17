@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import LeadForm from "./LeadForm";
@@ -27,9 +28,11 @@ interface ServicePageProps {
   benefits: { title: string; desc: string }[];
   options: { title: string; desc: string }[];
   faqs: { q: string; a: string }[];
+  heroImage?: string;
+  galleryImages?: string[];
 }
 
-export default function ServicePageTemplate({ title, subtitle, description, icon, features, benefits, options, faqs }: ServicePageProps) {
+export default function ServicePageTemplate({ title, subtitle, description, icon, features, benefits, options, faqs, heroImage, galleryImages }: ServicePageProps) {
   const [heroVisible, setHeroVisible] = useState(false);
   useEffect(() => { const t = setTimeout(() => setHeroVisible(true), 100); return () => clearTimeout(t); }, []);
   const contentRef = useInView(0.05);
@@ -102,6 +105,46 @@ export default function ServicePageTemplate({ title, subtitle, description, icon
           </div>
         </div>
       </section>
+
+      {/* Photo Gallery */}
+      {heroImage && (
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <p className="text-[#D9001B] text-sm font-bold uppercase tracking-[0.2em] mb-3">Real Work</p>
+              <h2 className="text-3xl font-black text-gray-900">Our {title} Projects</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="md:col-span-2 relative h-80 md:h-[420px] rounded-2xl overflow-hidden">
+                <Image src={heroImage} alt={`${title} installation`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 66vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4 bg-[#D9001B] text-white text-xs font-bold px-3 py-1.5 rounded-full">Featured Project</div>
+              </div>
+              <div className="flex flex-col gap-4">
+                {(galleryImages ?? []).slice(0, 2).map((img, i) => (
+                  <div key={i} className="relative flex-1 rounded-2xl overflow-hidden min-h-[120px]">
+                    <Image src={img} alt={`${title} project ${i + 2}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                  </div>
+                ))}
+              </div>
+            </div>
+            {(galleryImages ?? []).length > 2 && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                {(galleryImages ?? []).slice(2).map((img, i) => (
+                  <div key={i} className="relative h-40 rounded-xl overflow-hidden">
+                    <Image src={img} alt={`${title} project ${i + 4}`} fill className="object-cover" sizes="25vw" />
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="mt-8 text-center">
+              <Link href="/projects" className="inline-flex items-center gap-2 text-[#D9001B] font-semibold hover:underline">
+                View all projects <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Options */}
       <section className="py-24 bg-[#0A0A0A]">

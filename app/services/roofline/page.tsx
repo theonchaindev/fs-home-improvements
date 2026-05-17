@@ -39,6 +39,11 @@ export default function RooflinePage() {
         { q: "How long does roofline installation take?", a: "Most standard semi-detached properties can be completed in a single day. Larger detached homes may take two days. We'll always give you a clear estimate when we provide your quote." },
         { q: "What colours are available?", a: "We offer white, black, anthracite grey, woodgrain foiled and a range of other colours. Most of our customers choose white or anthracite grey for a clean, modern finish." },
       ]}
+      heroImage="/images/projects/kethis-bungalow-angle.jpg"
+      galleryImages={[
+        "/images/projects/kethis-bungalow-full.jpg",
+        "/images/projects/showcase-large-house.jpg",
+      ]}
     />
   );
 }

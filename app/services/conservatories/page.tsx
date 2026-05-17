@@ -39,6 +39,11 @@ export default function ServatoriesPage() {
         { q: "How long does installation take?", a: "Most projects are completed in 5–10 working days depending on the size and complexity of the structure. We'll provide a detailed timeline after your design consultation." },
         { q: "What's the difference between a conservatory and an orangery?", a: "A conservatory is predominantly glass. An orangery features more substantial brick or rendered walls with a central glass lantern roof — it feels more like a genuine room extension." },
       ]}
+      heroImage="/images/projects/detached-oak-porch.jpg"
+      galleryImages={[
+        "/images/projects/showcase-large-house.jpg",
+        "/images/projects/kethis-bungalow-full.jpg",
+      ]}
     />
   );
 }

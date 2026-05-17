@@ -39,6 +39,11 @@ export default function BifoldDoorsPage() {
         { q: "Can bi-fold doors be fitted in winter?", a: "Yes — we install bi-fold doors year-round. We take every precaution to minimise disruption during installation and ensure your home is secure and weathertight throughout the process." },
         { q: "Do I need planning permission for bi-fold doors?", a: "In most cases, replacing an existing opening with bi-fold doors doesn't require planning permission. Creating a new opening may require approval — we'll advise you fully during your free survey." },
       ]}
+      heroImage="/images/bifold/anthracite-brick-topiary.jpg"
+      galleryImages={[
+        "/images/bifold/anthracite-white-render.jpg",
+        "/images/projects/detached-oak-porch.jpg",
+      ]}
     />
   );
 }
