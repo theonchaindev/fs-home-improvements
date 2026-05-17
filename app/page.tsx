@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Star, Phone, Shield, Award, Clock, Wrench, ChevronRight, Play } from "lucide-react";
 import VideoReel from "@/components/VideoReel";
@@ -35,11 +36,11 @@ function useInView(threshold = 0.2) {
 }
 
 const services = [
-  { title: "Windows", description: "uPVC, aluminium and timber windows. Energy-efficient, secure and beautifully crafted to enhance any property.", href: "/services/windows", icon: "🪟" },
-  { title: "Doors", description: "Composite, French and patio doors that combine stunning aesthetics with maximum security and insulation.", href: "/services/doors", icon: "🚪" },
-  { title: "Conservatories", description: "Custom conservatories and orangeries that seamlessly extend your living space with light and style.", href: "/services/conservatories", icon: "🏡" },
-  { title: "Bi-Fold Doors", description: "Effortlessly connect your indoor and outdoor spaces with sleek, space-saving bi-fold door systems.", href: "/services/bifold-doors", icon: "🔲" },
-  { title: "Roofline", description: "High-performance fascias, soffits and guttering that protect your home and elevate its appearance.", href: "/services/roofline", icon: "🏠" },
+  { title: "Windows", description: "uPVC, aluminium and timber windows. Energy-efficient, secure and beautifully crafted to enhance any property.", href: "/services/windows", image: "/images/windows/white-casement-red-brick.jpg" },
+  { title: "Doors", description: "Composite, French and patio doors that combine stunning aesthetics with maximum security and insulation.", href: "/services/doors", image: "/images/doors/anthracite-composite.jpg" },
+  { title: "Conservatories", description: "Custom conservatories and orangeries that seamlessly extend your living space with light and style.", href: "/services/conservatories", image: "/images/projects/detached-oak-porch.jpg" },
+  { title: "Bi-Fold Doors", description: "Effortlessly connect your indoor and outdoor spaces with sleek, space-saving bi-fold door systems.", href: "/services/bifold-doors", image: "/images/bifold/anthracite-brick-topiary.jpg" },
+  { title: "Roofline", description: "High-performance fascias, soffits and guttering that protect your home and elevate its appearance.", href: "/services/roofline", image: "/images/projects/kethis-bungalow-angle.jpg" },
 ];
 
 const stats = [
@@ -78,16 +79,21 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
   return (
     <div
       ref={ref}
-      className="group bg-white border border-gray-100 rounded-xl p-7 hover:border-[#D9001B]/30 hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+      className="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-[#D9001B]/30 hover:shadow-xl transition-all duration-500 relative"
       style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s, box-shadow 0.3s, border-color 0.3s` }}
     >
-      <div className="absolute top-0 left-0 w-full h-0.5 bg-[#D9001B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-      <div className="text-4xl mb-4">{service.icon}</div>
-      <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-      <p className="text-gray-500 text-sm leading-relaxed mb-5">{service.description}</p>
-      <Link href={service.href} className="inline-flex items-center gap-2 text-[#D9001B] text-sm font-semibold group-hover:gap-3 transition-all">
-        Learn More <ChevronRight size={15} />
-      </Link>
+      <div className="relative h-48 overflow-hidden">
+        <Image src={service.image} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 33vw" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-[#D9001B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      </div>
+      <div className="p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+        <p className="text-gray-500 text-sm leading-relaxed mb-5">{service.description}</p>
+        <Link href={service.href} className="inline-flex items-center gap-2 text-[#D9001B] text-sm font-semibold group-hover:gap-3 transition-all">
+          Learn More <ChevronRight size={15} />
+        </Link>
+      </div>
     </div>
   );
 }

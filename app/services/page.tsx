@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
@@ -21,35 +22,35 @@ const services = [
   {
     title: "Windows",
     href: "/services/windows",
-    icon: "🪟",
+    image: "/images/windows/white-casement-red-brick.jpg",
     description: "From classic casement to contemporary aluminium, our window range covers every style and budget. All frames are energy-rated and fully guaranteed.",
     features: ["uPVC, Aluminium & Timber", "A-Rated Energy Efficiency", "Multiple Styles & Colours", "10-Year Guarantee"],
   },
   {
     title: "Doors",
     href: "/services/doors",
-    icon: "🚪",
+    image: "/images/doors/anthracite-composite.jpg",
     description: "Make a statement with a beautiful new front or back door. We supply and install composite, French, patio and stable doors with premium security locks.",
     features: ["Composite & uPVC Doors", "French & Patio Doors", "Multi-Point Locking", "Custom Colours & Glazing"],
   },
   {
     title: "Conservatories & Orangeries",
     href: "/services/conservatories",
-    icon: "🏡",
+    image: "/images/projects/detached-oak-porch.jpg",
     description: "Transform your home with a stunning conservatory or orangery extension. Bespoke designs to complement your property — all built and installed by our team.",
     features: ["Victorian & Edwardian Styles", "Solid Roof Options", "Orangery Extensions", "Full Planning Guidance"],
   },
   {
     title: "Bi-Fold Doors",
     href: "/services/bifold-doors",
-    icon: "🔲",
+    image: "/images/bifold/anthracite-brick-topiary.jpg",
     description: "Open up your home to the outside world with elegant, slimline bi-fold doors. Perfect for connecting living areas to gardens and patios.",
     features: ["Slim Aluminium Frames", "2–7 Panel Configurations", "Flush Floor Track Options", "Double or Triple Glazed"],
   },
   {
     title: "Roofline",
     href: "/services/roofline",
-    icon: "🏠",
+    image: "/images/projects/kethis-bungalow-angle.jpg",
     description: "Protect and beautify your home with high-performance fascias, soffits and guttering. Low-maintenance, durable products that will last for decades.",
     features: ["Fascias & Soffits", "Guttering & Downpipes", "Bargeboards", "Full Roofline Replacement"],
   },
@@ -79,19 +80,20 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-24 bg-white">
-        <div ref={listRef.ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div ref={listRef.ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           {services.map((s, i) => (
             <div
               key={s.title}
-              className="group grid md:grid-cols-3 gap-8 items-center bg-gray-50 hover:bg-white border border-gray-100 hover:border-[#D9001B]/20 rounded-2xl p-8 transition-all duration-400 hover:shadow-xl"
+              className="group grid md:grid-cols-4 gap-0 items-stretch bg-white border border-gray-100 hover:border-[#D9001B]/20 rounded-2xl overflow-hidden transition-all duration-400 hover:shadow-xl"
               style={{ opacity: listRef.inView ? 1 : 0, transform: listRef.inView ? "translateX(0)" : "translateX(-30px)", transition: `all 0.6s ease ${i * 0.1}s` }}
             >
-              <div className="md:col-span-2">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-4xl">{s.icon}</span>
-                  <h2 className="text-2xl font-black text-gray-900">{s.title}</h2>
-                </div>
-                <p className="text-gray-500 leading-relaxed mb-6">{s.description}</p>
+              <div className="relative h-56 md:h-auto md:col-span-1">
+                <Image src={s.image} alt={s.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 25vw" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10" />
+              </div>
+              <div className="md:col-span-2 p-8 flex flex-col justify-center">
+                <h2 className="text-2xl font-black text-gray-900 mb-3">{s.title}</h2>
+                <p className="text-gray-500 leading-relaxed mb-5">{s.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {s.features.map((f) => (
                     <span key={f} className="text-xs bg-[#D9001B]/8 text-[#D9001B] font-semibold px-3 py-1 rounded-full border border-[#D9001B]/15">
@@ -100,7 +102,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col gap-3">
+              <div className="md:col-span-1 flex flex-col gap-3 justify-center p-6 bg-gray-50 group-hover:bg-gray-100/50 transition-colors">
                 <Link href={s.href} className="flex items-center justify-center gap-2 bg-[#D9001B] hover:bg-[#A80015] text-white font-bold px-6 py-4 rounded transition-colors">
                   Learn More <ChevronRight size={16} />
                 </Link>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 
@@ -54,14 +55,8 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-[#D9001B] flex items-center justify-center font-black text-white text-lg leading-none">
-              FS
-            </div>
-            <div>
-              <div className="text-white font-bold text-base leading-none tracking-wide">FS HOME</div>
-              <div className="text-[#D9001B] text-xs font-semibold tracking-[0.2em] uppercase">Improvements</div>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image src="/logo.png" alt="FS Home Improvements" width={140} height={60} className="h-12 w-auto object-contain" priority />
           </Link>
 
           {/* Desktop nav */}
