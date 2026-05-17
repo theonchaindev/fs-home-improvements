@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useEffect, useRef, useState } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -28,8 +29,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
   if (!project) return notFound();
 
   const [heroVisible, setHeroVisible] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const allImages = [project.image, ...project.galleryImages];
   useEffect(() => { const t = setTimeout(() => setHeroVisible(true), 100); return () => clearTimeout(t); }, []);
 
   const contentRef = useInView();
@@ -43,7 +42,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
       <section className="relative bg-[#0A0A0A] pt-28 overflow-hidden">
         <div className="relative h-[55vh] min-h-[400px]">
           <Image
-            src={allImages[selectedImage]}
+            src={project.image}
             alt={project.title}
             fill
             className="object-cover"
@@ -55,19 +54,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           {/* Category badge */}
           <div className="absolute top-6 left-6">
             <span className="bg-[#D9001B] text-white text-xs font-bold px-3 py-1.5 rounded-full">{project.category}</span>
-          </div>
-
-          {/* Thumbnail strip */}
-          <div className="absolute bottom-6 left-6 flex gap-2">
-            {allImages.map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setSelectedImage(i)}
-                className={`relative w-16 h-12 rounded overflow-hidden border-2 transition-all ${i === selectedImage ? "border-[#D9001B] scale-110" : "border-white/20 hover:border-white/50"}`}
-              >
-                <Image src={img} alt={`View ${i + 1}`} fill className="object-cover" sizes="64px" />
-              </button>
-            ))}
           </div>
         </div>
 

@@ -24,20 +24,12 @@ const values = [
   { icon: <Star size={20} />, title: "Proven Results", desc: "Over 500 projects completed with a 98% customer satisfaction rating. Our work speaks for itself." },
 ];
 
-const milestones = [
-  { year: "2009", title: "Founded", desc: "FS Home Improvements was established with a simple goal: deliver exceptional quality at an honest price." },
-  { year: "2012", title: "100 Projects", desc: "Reached our first major milestone — 100 completed projects and a growing reputation for excellence." },
-  { year: "2016", title: "Expanded Services", desc: "Added bi-fold doors and conservatory installations to meet the growing demand from our customers." },
-  { year: "2020", title: "500+ Customers", desc: "Passed 500 happy customers. A landmark moment that reflects our commitment to quality craftsmanship." },
-  { year: "2024", title: "Award Winning", desc: "Recognised as a top-rated local home improvement specialist, with industry accreditations to match." },
-];
 
 export default function AboutPage() {
   const [heroVisible, setHeroVisible] = useState(false);
   useEffect(() => { const t = setTimeout(() => setHeroVisible(true), 100); return () => clearTimeout(t); }, []);
   const storyRef = useInView();
   const valuesRef = useInView();
-  const timelineRef = useInView();
 
   return (
     <>
@@ -55,7 +47,7 @@ export default function AboutPage() {
               Built on trust.<br /><span className="text-[#D9001B]">Driven by quality.</span>
             </h1>
             <p className="text-white/60 text-xl leading-relaxed">
-              For over 15 years, FS Home Improvements has been transforming homes across the region. We combine expert craftsmanship with premium products to deliver results that last a lifetime.
+              FS Home Improvements has been transforming homes across the region. We combine expert craftsmanship with premium products to deliver results that last a lifetime.
             </p>
           </div>
         </div>
@@ -67,20 +59,20 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div style={{ opacity: storyRef.inView ? 1 : 0, transform: storyRef.inView ? "translateX(0)" : "translateX(-30px)", transition: "all 0.7s ease" }}>
               <p className="text-[#D9001B] text-sm font-bold uppercase tracking-[0.2em] mb-3">Our Story</p>
-              <h2 className="text-4xl font-black text-gray-900 mb-6">A family business, <br />built on reputation</h2>
+              <h2 className="text-4xl font-black text-gray-900 mb-6">Built on reputation</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  FS Home Improvements was founded in 2009 with a single van, two installers, and an unwavering commitment to quality. What started as a small local business has grown into one of the region&apos;s most trusted home improvement specialists.
+                  FS Home Improvements has grown into one of the region&apos;s most trusted home improvement specialists, built on an unwavering commitment to quality.
                 </p>
                 <p>
                   Every member of our team shares the same values: do the job right, treat every customer with respect, and never leave a site until the homeowner is completely satisfied.
                 </p>
                 <p>
-                  Today we&apos;ve completed over 500 projects, but we still operate with the same personal touch that made us who we are. You&apos;ll always speak to a real person, get a straight answer, and receive a fair price.
+                  We&apos;ve completed over 500 projects and still operate with the same personal touch that made us who we are. You&apos;ll always speak to a real person, get a straight answer, and receive a fair price.
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-6">
-                {[{ value: "15+", label: "Years Experience" }, { value: "500+", label: "Projects Complete" }, { value: "98%", label: "Satisfaction Rate" }, { value: "10yr", label: "Guarantee" }].map((s) => (
+                {[{ value: "500+", label: "Projects Complete" }, { value: "98%", label: "Satisfaction Rate" }, { value: "10yr", label: "Guarantee" }, { value: "5★", label: "Average Rating" }].map((s) => (
                   <div key={s.label} className="border-l-2 border-[#D9001B] pl-4">
                     <div className="text-2xl font-black text-gray-900">{s.value}</div>
                     <div className="text-gray-400 text-sm">{s.label}</div>
@@ -141,39 +133,6 @@ export default function AboutPage() {
                 <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-24 bg-[#0A0A0A]">
-        <div ref={timelineRef.ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16" style={{ opacity: timelineRef.inView ? 1 : 0, transform: timelineRef.inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.6s ease" }}>
-            <p className="text-[#D9001B] text-sm font-bold uppercase tracking-[0.2em] mb-3">Our Journey</p>
-            <h2 className="text-4xl font-black text-white">15 years of growth</h2>
-          </div>
-          <div className="relative">
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden lg:block" />
-            <div className="space-y-8">
-              {milestones.map((m, i) => (
-                <div
-                  key={m.year}
-                  className={`grid lg:grid-cols-2 gap-8 items-center ${i % 2 === 0 ? "" : "lg:direction-rtl"}`}
-                  style={{ opacity: timelineRef.inView ? 1 : 0, transform: timelineRef.inView ? "translateY(0)" : "translateY(30px)", transition: `all 0.6s ease ${i * 0.1}s` }}
-                >
-                  <div className={`${i % 2 !== 0 ? "lg:order-2" : ""}`}>
-                    <div className="bg-[#1A1A1A] border border-white/10 rounded-xl p-6 hover:border-[#D9001B]/30 transition-colors">
-                      <div className="text-[#D9001B] font-black text-2xl mb-1">{m.year}</div>
-                      <div className="text-white font-bold text-lg mb-2">{m.title}</div>
-                      <div className="text-white/50 text-sm leading-relaxed">{m.desc}</div>
-                    </div>
-                  </div>
-                  <div className={`hidden lg:flex justify-center ${i % 2 !== 0 ? "lg:order-1" : ""}`}>
-                    <div className="w-4 h-4 bg-[#D9001B] rounded-full ring-4 ring-[#D9001B]/20" />
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

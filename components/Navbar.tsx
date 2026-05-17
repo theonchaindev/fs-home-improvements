@@ -55,8 +55,12 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image src="/logo.png" alt="FS Home Improvements" width={140} height={60} className="h-12 w-auto object-contain" priority />
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/logo-icon.png" alt="FS Home Improvements" width={44} height={44} className="h-11 w-auto object-contain" priority />
+            <div>
+              <div className="text-white font-black text-base leading-none tracking-wide">FS HOME</div>
+              <div className="text-[#D9001B] text-xs font-bold tracking-[0.15em] uppercase">Improvements</div>
+            </div>
           </Link>
 
           {/* Desktop nav */}
