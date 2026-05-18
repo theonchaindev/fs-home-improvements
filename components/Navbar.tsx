@@ -43,9 +43,9 @@ export default function Navbar() {
     >
       {/* Top bar */}
       <div className="bg-[#85152C] py-2 px-4 flex justify-end items-center gap-6 text-white text-sm">
-        <a href="tel:+441234567890" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity font-medium">
+        <a href="tel:+447412027802" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity font-medium">
           <Phone size={13} />
-          01234 567 890
+          07412 027802
         </a>
         <Link href="/contact" className="hover:opacity-80 transition-opacity hidden sm:block">
           Free Quote →

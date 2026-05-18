@@ -66,7 +66,7 @@ export default function ServicePageTemplate({ title, subtitle, description, icon
                 ))}
               </div>
               <div className="mt-8 flex gap-4">
-                <a href="tel:+441234567890" className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-sm font-semibold px-5 py-3 rounded transition-all">
+                <a href="tel:+447412027802" className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-sm font-semibold px-5 py-3 rounded transition-all">
                   <Phone size={15} /> Call Us
                 </a>
                 <Link href="/projects" className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-sm font-semibold px-5 py-3 rounded transition-all">
@@ -205,7 +205,7 @@ export default function ServicePageTemplate({ title, subtitle, description, icon
             <Link href="/contact" className="inline-flex items-center justify-center gap-3 bg-white text-[#85152C] font-bold px-10 py-5 rounded hover:bg-gray-100 transition-colors text-lg">
               Get Free Quote <ArrowRight size={20} />
             </Link>
-            <a href="tel:+441234567890" className="inline-flex items-center justify-center gap-3 border-2 border-white text-white font-bold px-10 py-5 rounded hover:bg-white/10 transition-colors text-lg">
+            <a href="tel:+447412027802" className="inline-flex items-center justify-center gap-3 border-2 border-white text-white font-bold px-10 py-5 rounded hover:bg-white/10 transition-colors text-lg">
               <Phone size={18} /> Call Now
             </a>
           </div>

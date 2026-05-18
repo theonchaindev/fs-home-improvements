@@ -21,7 +21,7 @@ const values = [
   { icon: <Trophy size={20} />, title: "Quality First", desc: "We never cut corners. Every job is done to the highest possible standard, using premium products and materials." },
   { icon: <Heart size={20} />, title: "Customer Care", desc: "You're not just a job number — we build lasting relationships with every homeowner we work with." },
   { icon: <Users size={20} />, title: "Local Expertise", desc: "Proudly serving our local community. We know the area, we know the homes, and we care about the neighbourhood." },
-  { icon: <Star size={20} />, title: "Proven Results", desc: "Over 500 projects completed with a 98% customer satisfaction rating. Our work speaks for itself." },
+  { icon: <Star size={20} />, title: "Proven Results", desc: "An outstanding 98% customer satisfaction rating. Our work and our reviews speak for themselves." },
 ];
 
 
@@ -68,11 +68,11 @@ export default function AboutPage() {
                   Every member of our team shares the same values: do the job right, treat every customer with respect, and never leave a site until the homeowner is completely satisfied.
                 </p>
                 <p>
-                  We&apos;ve completed over 500 projects and still operate with the same personal touch that made us who we are. You&apos;ll always speak to a real person, get a straight answer, and receive a fair price.
+                  We operate with a personal touch that defines who we are. You&apos;ll always speak to a real person, get a straight answer, and receive a fair price.
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-6">
-                {[{ value: "500+", label: "Projects Complete" }, { value: "98%", label: "Satisfaction Rate" }, { value: "10yr", label: "Guarantee" }, { value: "5★", label: "Average Rating" }].map((s) => (
+                {[{ value: "6+", label: "Years Experience" }, { value: "98%", label: "Satisfaction Rate" }, { value: "10yr", label: "Guarantee" }, { value: "5★", label: "Average Rating" }].map((s) => (
                   <div key={s.label} className="border-l-2 border-[#85152C] pl-4">
                     <div className="text-2xl font-black text-gray-900">{s.value}</div>
                     <div className="text-gray-400 text-sm">{s.label}</div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
       <section className="py-20 bg-[#85152C]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-black text-white mb-4">Ready to work with us?</h2>
-          <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote and see why hundreds of homeowners trust FS Home Improvements.</p>
+          <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote and see why homeowners across the region trust FS Home Improvements.</p>
           <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-[#85152C] font-bold px-10 py-5 rounded hover:bg-gray-100 transition-colors text-lg">
             Get Free Quote <ArrowRight size={20} />
           </Link>

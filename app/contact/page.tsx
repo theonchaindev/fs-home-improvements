@@ -35,8 +35,8 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-black text-gray-900 mb-6">Contact Information</h2>
                 <div className="space-y-5">
                   {[
-                    { icon: <Phone size={18} />, label: "Phone", value: "01234 567 890", href: "tel:+441234567890" },
-                    { icon: <Mail size={18} />, label: "Email", value: "info@fshomeimprovements.co.uk", href: "mailto:info@fshomeimprovements.co.uk" },
+                    { icon: <Phone size={18} />, label: "Phone", value: "07412 027802", href: "tel:+447412027802" },
+                    { icon: <Mail size={18} />, label: "Email", value: "fshomeimprovements@hotmail.com", href: "mailto:fshomeimprovements@hotmail.com" },
                     { icon: <MapPin size={18} />, label: "Service Area", value: "Serving all surrounding areas", href: undefined },
                     { icon: <Clock size={18} />, label: "Hours", value: "Mon–Fri 8am–6pm | Sat 9am–4pm", href: undefined },
                   ].map((item) => (

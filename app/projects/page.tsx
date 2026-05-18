@@ -129,7 +129,7 @@ export default function ProjectsPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#85152C] text-sm font-bold uppercase tracking-[0.2em] mb-4">Your Turn</p>
           <h2 className="text-4xl font-black text-white mb-4">Ready to start your project?</h2>
-          <p className="text-white/50 text-lg mb-8">Join hundreds of satisfied homeowners and transform your home with FS Home Improvements.</p>
+          <p className="text-white/50 text-lg mb-8">Transform your home with FS Home Improvements — quality you can see, service you can trust.</p>
           <Link href="/contact" className="inline-flex items-center gap-3 bg-[#85152C] hover:bg-[#6a1023] text-white font-bold px-10 py-5 rounded transition-colors text-lg">
             Get Free Quote <ArrowRight size={20} />
           </Link>

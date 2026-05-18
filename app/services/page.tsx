@@ -36,7 +36,7 @@ const services = [
   {
     title: "Conservatories & Orangeries",
     href: "/services/conservatories",
-    image: "/images/projects/detached-oak-porch.jpg",
+    image: "",
     description: "Transform your home with a stunning conservatory or orangery extension. Bespoke designs to complement your property — all built and installed by our team.",
     features: ["Victorian & Edwardian Styles", "Solid Roof Options", "Orangery Extensions", "Full Planning Guidance"],
   },
@@ -87,8 +87,14 @@ export default function ServicesPage() {
               className="group grid md:grid-cols-4 gap-0 items-stretch bg-white border border-gray-100 hover:border-[#85152C]/20 rounded-2xl overflow-hidden transition-all duration-400 hover:shadow-xl"
               style={{ opacity: listRef.inView ? 1 : 0, transform: listRef.inView ? "translateX(0)" : "translateX(-30px)", transition: `all 0.6s ease ${i * 0.1}s` }}
             >
-              <div className="relative h-56 md:h-auto md:col-span-1">
-                <Image src={s.image} alt={s.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 25vw" />
+              <div className="relative h-56 md:h-auto md:col-span-1 bg-[#0A0A0A]">
+                {s.image ? (
+                  <Image src={s.image} alt={s.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 25vw" />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-white/10 font-black text-7xl uppercase">{s.title[0]}</span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10" />
               </div>
               <div className="md:col-span-2 p-8 flex flex-col justify-center">

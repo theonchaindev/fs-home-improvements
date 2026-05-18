@@ -38,14 +38,13 @@ function useInView(threshold = 0.2) {
 const services = [
   { title: "Windows", description: "uPVC, aluminium and timber windows. Energy-efficient, secure and beautifully crafted to enhance any property.", href: "/services/windows", image: "/images/windows/white-casement-red-brick.jpg" },
   { title: "Doors", description: "Composite, French and patio doors that combine stunning aesthetics with maximum security and insulation.", href: "/services/doors", image: "/images/doors/anthracite-composite.jpg" },
-  { title: "Conservatories", description: "Custom conservatories and orangeries that seamlessly extend your living space with light and style.", href: "/services/conservatories", image: "/images/projects/detached-oak-porch.jpg" },
+  { title: "Conservatories", description: "Custom conservatories and orangeries that seamlessly extend your living space with light and style.", href: "/services/conservatories", image: "" },
   { title: "Bi-Fold Doors", description: "Effortlessly connect your indoor and outdoor spaces with sleek, space-saving bi-fold door systems.", href: "/services/bifold-doors", image: "/images/bifold/anthracite-brick-topiary.jpg" },
   { title: "Roofline", description: "High-performance fascias, soffits and guttering that protect your home and elevate its appearance.", href: "/services/roofline", image: "/images/projects/kethis-bungalow-angle.jpg" },
 ];
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects Completed" },
-  { value: 15, suffix: " yrs", label: "Years Experience" },
+  { value: 6, suffix: "+", label: "Years Experience" },
   { value: 98, suffix: "%", label: "Customer Satisfaction" },
   { value: 10, suffix: " yr", label: "Guarantee" },
 ];
@@ -82,8 +81,14 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       className="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-[#85152C]/30 hover:shadow-xl transition-all duration-500 relative"
       style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s, box-shadow 0.3s, border-color 0.3s` }}
     >
-      <div className="relative h-48 overflow-hidden">
-        <Image src={service.image} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 33vw" />
+      <div className="relative h-48 overflow-hidden bg-[#0A0A0A]">
+        {service.image ? (
+          <Image src={service.image} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 33vw" />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-white/10 font-black text-6xl uppercase">{service.title[0]}</span>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
         <div className="absolute top-0 left-0 w-full h-0.5 bg-[#85152C] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
       </div>
@@ -135,7 +140,7 @@ export default function Home() {
               className="mt-7 text-xl text-white/70 leading-relaxed max-w-xl"
               style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.25s" }}
             >
-              Expert installation of windows, doors, conservatories and more. Trusted by 500+ homeowners across the region.
+              Expert installation of windows, doors, conservatories and more. Trusted by homeowners across the region.
             </p>
 
             <div
@@ -155,8 +160,8 @@ export default function Home() {
               className="mt-12 flex flex-wrap items-center gap-8"
               style={{ opacity: heroVisible ? 1 : 0, transition: "all 0.7s ease 0.5s" }}
             >
-              {[{ value: "500+", label: "Projects" }, { value: "15 yrs", label: "Experience" }, { value: "10 yr", label: "Guarantee" }, { value: "5★", label: "Rated" }].map((s, i) => (
-                <div key={s.label} className={`text-center ${i < 3 ? "pr-8 border-r border-white/20" : ""}`}>
+              {[{ value: "6+", label: "Experience" }, { value: "10 yr", label: "Guarantee" }, { value: "5★", label: "Rated" }].map((s, i) => (
+                <div key={s.label} className={`text-center ${i < 2 ? "pr-8 border-r border-white/20" : ""}`}>
                   <div className="text-white font-black text-2xl">{s.value}</div>
                   <div className="text-white/50 text-xs mt-0.5 uppercase tracking-wide">{s.label}</div>
                 </div>
@@ -167,12 +172,12 @@ export default function Home() {
 
         {/* Phone CTA floating bottom-right */}
         <a
-          href="tel:+441234567890"
+          href="tel:+447412027802"
           className="absolute bottom-8 right-8 z-20 hidden lg:flex items-center gap-3 bg-white text-[#0A0A0A] font-bold px-5 py-3 rounded-full shadow-2xl hover:bg-gray-100 transition-all text-sm"
           style={{ opacity: heroVisible ? 1 : 0, transition: "all 0.7s ease 0.6s" }}
         >
           <Phone size={15} className="text-[#85152C]" />
-          01234 567 890
+          07412 027802
         </a>
       </section>
 
@@ -230,7 +235,7 @@ export default function Home() {
       <section className="py-24 bg-[#0A0A0A] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
             {stats.map((s) => <StatCard key={s.label} {...s} />)}
           </div>
         </div>
@@ -286,8 +291,8 @@ export default function Home() {
             <Link href="/contact" className="group flex items-center justify-center gap-3 bg-[#85152C] hover:bg-[#6a1023] text-white font-bold px-10 py-5 rounded text-lg transition-all duration-300">
               Get Your Free Quote <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a href="tel:+441234567890" className="flex items-center justify-center gap-3 border border-white/20 hover:border-white/40 text-white font-semibold px-10 py-5 rounded text-lg transition-all duration-300">
-              <Phone size={18} /> 01234 567 890
+            <a href="tel:+447412027802" className="flex items-center justify-center gap-3 border border-white/20 hover:border-white/40 text-white font-semibold px-10 py-5 rounded text-lg transition-all duration-300">
+              <Phone size={18} /> 07412 027802
             </a>
           </div>
         </div>

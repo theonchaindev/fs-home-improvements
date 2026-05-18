@@ -91,11 +91,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Phone size={15} className="text-[#85152C] mt-0.5 shrink-0" />
-                <a href="tel:+441234567890" className="text-white/50 hover:text-white text-sm transition-colors">01234 567 890</a>
+                <a href="tel:+447412027802" className="text-white/50 hover:text-white text-sm transition-colors">07412 027802</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={15} className="text-[#85152C] mt-0.5 shrink-0" />
-                <a href="mailto:info@fshomeimprovements.co.uk" className="text-white/50 hover:text-white text-sm transition-colors">info@fshomeimprovements.co.uk</a>
+                <a href="mailto:fshomeimprovements@hotmail.com" className="text-white/50 hover:text-white text-sm transition-colors">fshomeimprovements@hotmail.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={15} className="text-[#85152C] mt-0.5 shrink-0" />
