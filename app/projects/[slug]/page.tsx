@@ -53,7 +53,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
           {/* Category badge */}
           <div className="absolute top-6 left-6">
-            <span className="bg-[#D9001B] text-white text-xs font-bold px-3 py-1.5 rounded-full">{project.category}</span>
+            <span className="bg-[#85152C] text-white text-xs font-bold px-3 py-1.5 rounded-full">{project.category}</span>
           </div>
         </div>
 
@@ -90,11 +90,11 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
               <div className="grid sm:grid-cols-2 gap-5 mb-8">
                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                  <div className="text-[#D9001B] text-xs font-bold uppercase tracking-wider mb-2">The Challenge</div>
+                  <div className="text-[#85152C] text-xs font-bold uppercase tracking-wider mb-2">The Challenge</div>
                   <p className="text-gray-600 text-sm leading-relaxed">{project.challenge}</p>
                 </div>
                 <div className="bg-[#0A0A0A] rounded-xl p-6">
-                  <div className="text-[#D9001B] text-xs font-bold uppercase tracking-wider mb-2">The Result</div>
+                  <div className="text-[#85152C] text-xs font-bold uppercase tracking-wider mb-2">The Result</div>
                   <p className="text-white/70 text-sm leading-relaxed">{project.result}</p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tags.map((t) => (
-                  <span key={t} className="bg-[#D9001B]/8 text-[#D9001B] font-semibold text-xs px-4 py-1.5 rounded-full border border-[#D9001B]/15">{t}</span>
+                  <span key={t} className="bg-[#85152C]/8 text-[#85152C] font-semibold text-xs px-4 py-1.5 rounded-full border border-[#85152C]/15">{t}</span>
                 ))}
               </div>
 
@@ -115,7 +115,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   </div>
                   <p className="text-white/80 text-lg leading-relaxed mb-5 italic">&quot;{project.testimonial.text}&quot;</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#D9001B] rounded-full flex items-center justify-center text-white font-black text-sm">
+                    <div className="w-10 h-10 bg-[#85152C] rounded-full flex items-center justify-center text-white font-black text-sm">
                       {project.testimonial.name[0]}
                     </div>
                     <span className="text-white/60 text-sm font-medium">{project.testimonial.name}</span>
@@ -160,7 +160,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                       "FENSA Registered",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-2 mb-2">
-                        <CheckCircle2 size={14} className="text-[#D9001B]" />
+                        <CheckCircle2 size={14} className="text-[#85152C]" />
                         <span className="text-gray-600 text-xs">{item}</span>
                       </div>
                     ))}
@@ -180,7 +180,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
               className="mb-10"
               style={{ opacity: relatedRef.inView ? 1 : 0, transform: relatedRef.inView ? "translateY(0)" : "translateY(20px)", transition: "all 0.5s ease" }}
             >
-              <p className="text-[#D9001B] text-sm font-bold uppercase tracking-[0.2em] mb-2">More Like This</p>
+              <p className="text-[#85152C] text-sm font-bold uppercase tracking-[0.2em] mb-2">More Like This</p>
               <h2 className="text-3xl font-black text-gray-900">Related {project.category} Projects</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -188,7 +188,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 <Link
                   href={`/projects/${p.slug}`}
                   key={p.id}
-                  className="group rounded-2xl overflow-hidden border border-gray-100 hover:border-[#D9001B]/20 hover:shadow-xl transition-all duration-400 bg-white"
+                  className="group rounded-2xl overflow-hidden border border-gray-100 hover:border-[#85152C]/20 hover:shadow-xl transition-all duration-400 bg-white"
                   style={{ opacity: relatedRef.inView ? 1 : 0, transform: relatedRef.inView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 0.1}s` }}
                 >
                   <div className="relative h-52 overflow-hidden bg-[#1A1A1A]">
@@ -199,9 +199,9 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-bold text-gray-900 group-hover:text-[#D9001B] transition-colors mb-1">{p.title}</h3>
+                    <h3 className="font-bold text-gray-900 group-hover:text-[#85152C] transition-colors mb-1">{p.title}</h3>
                     <p className="text-gray-500 text-sm line-clamp-1 mb-3">{p.shortDescription}</p>
-                    <span className="text-[#D9001B] text-sm font-semibold flex items-center gap-1">
+                    <span className="text-[#85152C] text-sm font-semibold flex items-center gap-1">
                       View Project <ArrowRight size={13} />
                     </span>
                   </div>
@@ -210,7 +210,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
             </div>
 
             <div className="mt-10 text-center">
-              <Link href="/projects" className="inline-flex items-center gap-2 border border-gray-300 hover:border-[#D9001B] text-gray-700 hover:text-[#D9001B] font-semibold px-8 py-4 rounded transition-all">
+              <Link href="/projects" className="inline-flex items-center gap-2 border border-gray-300 hover:border-[#85152C] text-gray-700 hover:text-[#85152C] font-semibold px-8 py-4 rounded transition-all">
                 <ChevronLeft size={15} /> All Projects
               </Link>
             </div>

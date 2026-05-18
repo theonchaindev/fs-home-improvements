@@ -67,7 +67,7 @@ export default function VideoReel() {
           <button
             key={i}
             onClick={() => { setCurrent(i); setNext((i + 1) % clips.length); }}
-            className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-1.5 bg-[#D9001B]" : "w-1.5 h-1.5 bg-white/30 hover:bg-white/60"}`}
+            className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-1.5 bg-[#85152C]" : "w-1.5 h-1.5 bg-white/30 hover:bg-white/60"}`}
             aria-label={`Clip ${i + 1}`}
           />
         ))}

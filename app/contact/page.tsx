@@ -12,12 +12,12 @@ export default function ContactPage() {
     <>
       <section className="relative bg-[#0A0A0A] pt-40 pb-24 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#D9001B]/30 to-transparent" />
+        <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#85152C]/30 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease 0.1s" }}>
-            <p className="text-[#D9001B] text-sm font-bold uppercase tracking-[0.2em] mb-4">Get In Touch</p>
+            <p className="text-[#85152C] text-sm font-bold uppercase tracking-[0.2em] mb-4">Get In Touch</p>
             <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
-              Let&apos;s talk about<br /><span className="text-[#D9001B]">your project.</span>
+              Let&apos;s talk about<br /><span className="text-[#85152C]">your project.</span>
             </h1>
             <p className="text-white/60 text-xl leading-relaxed max-w-2xl">
               Get your free, no-obligation quote today. We&apos;ll visit your home at a time that suits you and provide a transparent, competitive price.
@@ -41,11 +41,11 @@ export default function ContactPage() {
                     { icon: <Clock size={18} />, label: "Hours", value: "Mon–Fri 8am–6pm | Sat 9am–4pm", href: undefined },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-[#D9001B]/10 rounded-lg flex items-center justify-center text-[#D9001B] shrink-0">{item.icon}</div>
+                      <div className="w-10 h-10 bg-[#85152C]/10 rounded-lg flex items-center justify-center text-[#85152C] shrink-0">{item.icon}</div>
                       <div>
                         <div className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-0.5">{item.label}</div>
                         {item.href ? (
-                          <a href={item.href} className="text-gray-800 font-medium hover:text-[#D9001B] transition-colors text-sm">{item.value}</a>
+                          <a href={item.href} className="text-gray-800 font-medium hover:text-[#85152C] transition-colors text-sm">{item.value}</a>
                         ) : (
                           <div className="text-gray-800 font-medium text-sm">{item.value}</div>
                         )}
@@ -65,7 +65,7 @@ export default function ContactPage() {
                     { step: "4", title: "Detailed quote", desc: "We provide a clear, itemised quote with no hidden costs." },
                   ].map((s) => (
                     <div key={s.step} className="flex items-start gap-3">
-                      <div className="w-7 h-7 bg-[#D9001B] rounded-full flex items-center justify-center text-white text-xs font-black shrink-0 mt-0.5">{s.step}</div>
+                      <div className="w-7 h-7 bg-[#85152C] rounded-full flex items-center justify-center text-white text-xs font-black shrink-0 mt-0.5">{s.step}</div>
                       <div>
                         <div className="text-white text-sm font-semibold">{s.title}</div>
                         <div className="text-white/50 text-xs mt-0.5">{s.desc}</div>
@@ -78,7 +78,7 @@ export default function ContactPage() {
               <div className="space-y-2.5">
                 {["Free, no-obligation survey", "No-pressure sales approach", "Transparent, itemised pricing", "Fully insured & FENSA registered", "10-year insurance-backed guarantee"].map((p) => (
                   <div key={p} className="flex items-center gap-3">
-                    <CheckCircle2 size={16} className="text-[#D9001B] shrink-0" />
+                    <CheckCircle2 size={16} className="text-[#85152C] shrink-0" />
                     <span className="text-gray-600 text-sm">{p}</span>
                   </div>
                 ))}

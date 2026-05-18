@@ -65,10 +65,10 @@ export default function ServicesPage() {
     <>
       <section className="relative bg-[#0A0A0A] pt-40 pb-24 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#D9001B]/30 to-transparent" />
+        <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-[#85152C]/30 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease 0.1s" }}>
-            <p className="text-[#D9001B] text-sm font-bold uppercase tracking-[0.2em] mb-4">What We Offer</p>
+            <p className="text-[#85152C] text-sm font-bold uppercase tracking-[0.2em] mb-4">What We Offer</p>
             <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
               Our Services
             </h1>
@@ -84,7 +84,7 @@ export default function ServicesPage() {
           {services.map((s, i) => (
             <div
               key={s.title}
-              className="group grid md:grid-cols-4 gap-0 items-stretch bg-white border border-gray-100 hover:border-[#D9001B]/20 rounded-2xl overflow-hidden transition-all duration-400 hover:shadow-xl"
+              className="group grid md:grid-cols-4 gap-0 items-stretch bg-white border border-gray-100 hover:border-[#85152C]/20 rounded-2xl overflow-hidden transition-all duration-400 hover:shadow-xl"
               style={{ opacity: listRef.inView ? 1 : 0, transform: listRef.inView ? "translateX(0)" : "translateX(-30px)", transition: `all 0.6s ease ${i * 0.1}s` }}
             >
               <div className="relative h-56 md:h-auto md:col-span-1">
@@ -96,17 +96,17 @@ export default function ServicesPage() {
                 <p className="text-gray-500 leading-relaxed mb-5">{s.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {s.features.map((f) => (
-                    <span key={f} className="text-xs bg-[#D9001B]/8 text-[#D9001B] font-semibold px-3 py-1 rounded-full border border-[#D9001B]/15">
+                    <span key={f} className="text-xs bg-[#85152C]/8 text-[#85152C] font-semibold px-3 py-1 rounded-full border border-[#85152C]/15">
                       {f}
                     </span>
                   ))}
                 </div>
               </div>
               <div className="md:col-span-1 flex flex-col gap-3 justify-center p-6 bg-gray-50 group-hover:bg-gray-100/50 transition-colors">
-                <Link href={s.href} className="flex items-center justify-center gap-2 bg-[#D9001B] hover:bg-[#A80015] text-white font-bold px-6 py-4 rounded transition-colors">
+                <Link href={s.href} className="flex items-center justify-center gap-2 bg-[#85152C] hover:bg-[#6a1023] text-white font-bold px-6 py-4 rounded transition-colors">
                   Learn More <ChevronRight size={16} />
                 </Link>
-                <Link href="/contact" className="flex items-center justify-center gap-2 border border-gray-200 hover:border-[#D9001B] text-gray-700 hover:text-[#D9001B] font-semibold px-6 py-4 rounded transition-all text-sm">
+                <Link href="/contact" className="flex items-center justify-center gap-2 border border-gray-200 hover:border-[#85152C] text-gray-700 hover:text-[#85152C] font-semibold px-6 py-4 rounded transition-all text-sm">
                   Get a Quote <ArrowRight size={14} />
                 </Link>
               </div>
@@ -115,11 +115,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-[#D9001B]">
+      <section className="py-20 bg-[#85152C]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-black text-white mb-4">Not sure which service you need?</h2>
           <p className="text-white/80 text-lg mb-8">Our team will visit your home, assess your needs and provide honest, expert advice — completely free of charge.</p>
-          <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-[#D9001B] font-bold px-10 py-5 rounded hover:bg-gray-100 transition-colors text-lg">
+          <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-[#85152C] font-bold px-10 py-5 rounded hover:bg-gray-100 transition-colors text-lg">
             Book Free Survey <ArrowRight size={20} />
           </Link>
         </div>

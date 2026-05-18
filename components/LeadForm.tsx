@@ -28,7 +28,7 @@ export default function LeadForm({
     setSubmitted(true);
   };
 
-  const inputClass = `w-full px-4 py-3 rounded text-sm outline-none transition-all border focus:border-[#D9001B] ${
+  const inputClass = `w-full px-4 py-3 rounded text-sm outline-none transition-all border focus:border-[#85152C] ${
     dark
       ? "bg-white/5 border-white/10 text-white placeholder-white/30 focus:bg-white/8"
       : "bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white"
@@ -39,7 +39,7 @@ export default function LeadForm({
   if (submitted) {
     return (
       <div className={`rounded-xl p-8 flex flex-col items-center justify-center text-center min-h-[300px] ${dark ? "bg-white/5 border border-white/10" : "bg-gray-50 border border-gray-200"}`}>
-        <CheckCircle2 size={48} className="text-[#D9001B] mb-4" />
+        <CheckCircle2 size={48} className="text-[#85152C] mb-4" />
         <h3 className={`text-xl font-bold mb-2 ${dark ? "text-white" : "text-gray-900"}`}>Message Received!</h3>
         <p className={`text-sm ${dark ? "text-white/60" : "text-gray-500"}`}>
           Thank you for your enquiry about our {service} service. We&apos;ll be in touch within 24 hours.
@@ -54,8 +54,8 @@ export default function LeadForm({
         <h3 className={`text-xl font-bold mb-1 ${dark ? "text-white" : "text-gray-900"}`}>{title}</h3>
         <p className={`text-sm ${dark ? "text-white/50" : "text-gray-500"}`}>{subtitle}</p>
         <div className="flex items-center gap-2 mt-2">
-          <span className="w-6 h-0.5 bg-[#D9001B]" />
-          <span className={`text-xs font-medium ${dark ? "text-[#D9001B]" : "text-[#D9001B]"}`}>{service}</span>
+          <span className="w-6 h-0.5 bg-[#85152C]" />
+          <span className={`text-xs font-medium ${dark ? "text-[#85152C]" : "text-[#85152C]"}`}>{service}</span>
         </div>
       </div>
 
@@ -108,7 +108,7 @@ export default function LeadForm({
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-[#D9001B] hover:bg-[#A80015] text-white font-bold py-4 rounded text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+          className="w-full bg-[#85152C] hover:bg-[#6a1023] text-white font-bold py-4 rounded text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-70"
         >
           {loading ? (
             <>

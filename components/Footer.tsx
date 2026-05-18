@@ -13,13 +13,13 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] text-white">
       {/* CTA Banner */}
-      <div className="bg-[#D9001B] py-10 px-4">
+      <div className="bg-[#85152C] py-10 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-2xl md:text-3xl font-black text-white">Ready to transform your home?</h2>
             <p className="text-white/80 mt-1">Get your free, no-obligation quote today.</p>
           </div>
-          <Link href="/contact" className="shrink-0 bg-white text-[#D9001B] font-bold px-8 py-4 rounded hover:bg-gray-100 transition-colors text-sm uppercase tracking-wide">
+          <Link href="/contact" className="shrink-0 bg-white text-[#85152C] font-bold px-8 py-4 rounded hover:bg-gray-100 transition-colors text-sm uppercase tracking-wide">
             Get Free Quote
           </Link>
         </div>
@@ -30,20 +30,20 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-[#D9001B] flex items-center justify-center font-black text-white text-lg">FS</div>
+              <div className="w-9 h-9 bg-[#85152C] flex items-center justify-center font-black text-white text-lg">FS</div>
               <div>
                 <div className="text-white font-bold leading-none">FS HOME</div>
-                <div className="text-[#D9001B] text-xs font-semibold tracking-[0.2em] uppercase">Improvements</div>
+                <div className="text-[#85152C] text-xs font-semibold tracking-[0.2em] uppercase">Improvements</div>
               </div>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-5">
               Trusted home improvement specialists serving homeowners across the region. Quality you can see, service you can trust.
             </p>
             <div className="flex gap-3">
-              <a href="#" aria-label="Facebook" className="w-9 h-9 bg-white/10 hover:bg-[#D9001B] rounded flex items-center justify-center transition-colors">
+              <a href="#" aria-label="Facebook" className="w-9 h-9 bg-white/10 hover:bg-[#85152C] rounded flex items-center justify-center transition-colors">
                 <Share2 size={16} />
               </a>
-              <a href="#" aria-label="Instagram" className="w-9 h-9 bg-white/10 hover:bg-[#D9001B] rounded flex items-center justify-center transition-colors">
+              <a href="#" aria-label="Instagram" className="w-9 h-9 bg-white/10 hover:bg-[#85152C] rounded flex items-center justify-center transition-colors">
                 <MessageCircle size={16} />
               </a>
             </div>
@@ -55,8 +55,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {services.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-white/50 hover:text-[#D9001B] text-sm transition-colors flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#D9001B] rounded-full" />
+                  <Link href={s.href} className="text-white/50 hover:text-[#85152C] text-sm transition-colors flex items-center gap-2">
+                    <span className="w-1 h-1 bg-[#85152C] rounded-full" />
                     {s.name}
                   </Link>
                 </li>
@@ -76,8 +76,8 @@ export default function Footer() {
                 { name: "Get a Quote", href: "/contact" },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-white/50 hover:text-[#D9001B] text-sm transition-colors flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#D9001B] rounded-full" />
+                  <Link href={l.href} className="text-white/50 hover:text-[#85152C] text-sm transition-colors flex items-center gap-2">
+                    <span className="w-1 h-1 bg-[#85152C] rounded-full" />
                     {l.name}
                   </Link>
                 </li>
@@ -90,15 +90,15 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <Phone size={15} className="text-[#D9001B] mt-0.5 shrink-0" />
+                <Phone size={15} className="text-[#85152C] mt-0.5 shrink-0" />
                 <a href="tel:+441234567890" className="text-white/50 hover:text-white text-sm transition-colors">01234 567 890</a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail size={15} className="text-[#D9001B] mt-0.5 shrink-0" />
+                <Mail size={15} className="text-[#85152C] mt-0.5 shrink-0" />
                 <a href="mailto:info@fshomeimprovements.co.uk" className="text-white/50 hover:text-white text-sm transition-colors">info@fshomeimprovements.co.uk</a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={15} className="text-[#D9001B] mt-0.5 shrink-0" />
+                <MapPin size={15} className="text-[#85152C] mt-0.5 shrink-0" />
                 <span className="text-white/50 text-sm">Serving all surrounding areas</span>
               </li>
             </ul>

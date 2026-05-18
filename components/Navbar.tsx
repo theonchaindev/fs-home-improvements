@@ -42,7 +42,7 @@ export default function Navbar() {
       }`}
     >
       {/* Top bar */}
-      <div className="bg-[#D9001B] py-2 px-4 flex justify-end items-center gap-6 text-white text-sm">
+      <div className="bg-[#85152C] py-2 px-4 flex justify-end items-center gap-6 text-white text-sm">
         <a href="tel:+441234567890" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity font-medium">
           <Phone size={13} />
           01234 567 890
@@ -59,31 +59,31 @@ export default function Navbar() {
             <Image src="/logo-icon.png" alt="FS Home Improvements" width={44} height={44} className="h-11 w-auto object-contain" priority />
             <div>
               <div className="text-white font-black text-base leading-none tracking-wide">FS HOME</div>
-              <div className="text-[#D9001B] text-xs font-bold tracking-[0.15em] uppercase">Improvements</div>
+              <div className="text-[#85152C] text-xs font-bold tracking-[0.15em] uppercase">Improvements</div>
             </div>
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-8">
-            <Link href="/" className={`text-sm font-medium transition-colors ${pathname === "/" ? "text-[#D9001B]" : "text-white/80 hover:text-white"}`}>
+            <Link href="/" className={`text-sm font-medium transition-colors ${pathname === "/" ? "text-[#85152C]" : "text-white/80 hover:text-white"}`}>
               Home
             </Link>
-            <Link href="/about" className={`text-sm font-medium transition-colors ${pathname === "/about" ? "text-[#D9001B]" : "text-white/80 hover:text-white"}`}>
+            <Link href="/about" className={`text-sm font-medium transition-colors ${pathname === "/about" ? "text-[#85152C]" : "text-white/80 hover:text-white"}`}>
               About
             </Link>
 
             {/* Services dropdown */}
             <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-              <button className={`flex items-center gap-1 text-sm font-medium transition-colors ${pathname.startsWith("/services") ? "text-[#D9001B]" : "text-white/80 hover:text-white"}`}>
+              <button className={`flex items-center gap-1 text-sm font-medium transition-colors ${pathname.startsWith("/services") ? "text-[#85152C]" : "text-white/80 hover:text-white"}`}>
                 Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
               </button>
               <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200 ${servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`}>
                 <div className="bg-[#0A0A0A] border border-white/10 rounded-lg overflow-hidden shadow-2xl min-w-[180px]">
-                  <Link href="/services" className="block px-5 py-3 text-sm text-[#D9001B] font-semibold border-b border-white/10 hover:bg-white/5 transition-colors">
+                  <Link href="/services" className="block px-5 py-3 text-sm text-[#85152C] font-semibold border-b border-white/10 hover:bg-white/5 transition-colors">
                     All Services
                   </Link>
                   {services.map((s) => (
-                    <Link key={s.href} href={s.href} className={`block px-5 py-3 text-sm transition-colors hover:bg-white/5 ${pathname === s.href ? "text-[#D9001B]" : "text-white/70 hover:text-white"}`}>
+                    <Link key={s.href} href={s.href} className={`block px-5 py-3 text-sm transition-colors hover:bg-white/5 ${pathname === s.href ? "text-[#85152C]" : "text-white/70 hover:text-white"}`}>
                       {s.name}
                     </Link>
                   ))}
@@ -91,10 +91,10 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/projects" className={`text-sm font-medium transition-colors ${pathname === "/projects" ? "text-[#D9001B]" : "text-white/80 hover:text-white"}`}>
+            <Link href="/projects" className={`text-sm font-medium transition-colors ${pathname === "/projects" ? "text-[#85152C]" : "text-white/80 hover:text-white"}`}>
               Projects
             </Link>
-            <Link href="/contact" className={`text-sm font-medium transition-colors ${pathname === "/contact" ? "text-[#D9001B]" : "text-white/80 hover:text-white"}`}>
+            <Link href="/contact" className={`text-sm font-medium transition-colors ${pathname === "/contact" ? "text-[#85152C]" : "text-white/80 hover:text-white"}`}>
               Contact
             </Link>
           </div>
@@ -102,7 +102,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className="bg-[#D9001B] text-white text-sm font-semibold px-5 py-2.5 rounded hover:bg-[#A80015] transition-colors"
+              className="bg-[#85152C] text-white text-sm font-semibold px-5 py-2.5 rounded hover:bg-[#6a1023] transition-colors"
             >
               Get Free Quote
             </Link>
@@ -128,7 +128,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-1 pb-1">
-            <div className="px-3 py-2 text-[#D9001B] text-xs font-bold uppercase tracking-wider">Services</div>
+            <div className="px-3 py-2 text-[#85152C] text-xs font-bold uppercase tracking-wider">Services</div>
             {services.map((s) => (
               <Link key={s.href} href={s.href} className="block py-2 px-5 text-white/70 hover:text-white text-sm transition-colors">
                 {s.name}
@@ -136,7 +136,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="pt-2">
-            <Link href="/contact" className="block bg-[#D9001B] text-white text-center py-3 rounded font-semibold text-sm hover:bg-[#A80015] transition-colors">
+            <Link href="/contact" className="block bg-[#85152C] text-white text-center py-3 rounded font-semibold text-sm hover:bg-[#6a1023] transition-colors">
               Get Free Quote
             </Link>
           </div>
