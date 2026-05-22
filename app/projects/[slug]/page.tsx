@@ -67,7 +67,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
             </Link>
             <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{project.title}</h1>
             <div className="flex flex-wrap items-center gap-6 text-white/60 text-sm">
-              <span className="flex items-center gap-1.5"><MapPin size={13} />{project.location}</span>
               <span className="flex items-center gap-1.5"><Clock size={13} />Completed in {project.duration}</span>
               <span className="text-white/30">|</span>
               <span>{project.scope}</span>
@@ -143,7 +142,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   <div className="space-y-3">
                     {[
                       { label: "Service", value: project.category },
-                      { label: "Location", value: project.location },
                       { label: "Duration", value: project.duration },
                       { label: "Scope", value: project.scope },
                     ].map((row) => (
@@ -157,7 +155,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                     {[
                       "10-Year Guarantee",
                       "Fully Insured",
-                      "FENSA Registered",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-2 mb-2">
                         <CheckCircle2 size={14} className="text-[#85152C]" />
@@ -194,9 +191,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   <div className="relative h-52 overflow-hidden bg-[#1A1A1A]">
                     <Image src={p.image} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 50vw" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-3 left-3 flex items-center gap-1 text-white/80 text-xs">
-                      <MapPin size={10} /> {p.location}
-                    </div>
                   </div>
                   <div className="p-5">
                     <h3 className="font-bold text-gray-900 group-hover:text-[#85152C] transition-colors mb-1">{p.title}</h3>

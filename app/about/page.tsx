@@ -85,7 +85,6 @@ export default function AboutPage() {
                 <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#85152C] to-transparent" />
                 <div className="space-y-4">
                   {[
-                    "FENSA Registered Installer",
                     "Which? Trusted Trader",
                     "10-Year Insurance-Backed Guarantee",
                     "Fully Insured & Accredited",

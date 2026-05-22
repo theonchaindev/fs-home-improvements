@@ -90,10 +90,6 @@ export default function ProjectsPage() {
                   <div className="absolute top-4 left-4">
                     <span className="bg-[#85152C] text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
                   </div>
-                  <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white/80 text-xs">
-                    <MapPin size={11} />
-                    {p.location}
-                  </div>
                   {/* Hover arrow */}
                   <div className="absolute bottom-4 right-4 w-9 h-9 bg-[#85152C] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
                     <ChevronRight size={16} className="text-white" />
