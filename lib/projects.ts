@@ -67,7 +67,7 @@ export const projects: Project[] = [
     category: "Windows",
     shortDescription: "Full property window replacement — white uPVC casement windows fitted throughout a detached house.",
     fullDescription: "The customer wanted to replace all the windows across their entire property with modern, energy-efficient uPVC units. We supplied and installed white uPVC casement windows throughout, each fitted with A-rated double glazing for outstanding thermal performance and noise reduction. The clean white finish has completely refreshed the exterior, and the homeowner noticed a significant improvement in warmth and draught reduction from day one.",
-    image: "/images/projects/kethis-bungalow-full.jpg",
+    image: "/images/projects/detached-oak-porch.jpg",
     galleryImages: [
       "/images/windows/white-casement-red-brick.jpg",
       "/images/windows/casement-rendered-house.jpg",
