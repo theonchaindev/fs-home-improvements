@@ -36,7 +36,7 @@ const services = [
   {
     title: "Conservatories & Orangeries",
     href: "/services/conservatories",
-    image: "",
+    image: "/images/conservatory-job.jpg",
     description: "Transform your home with a stunning conservatory or orangery extension. Bespoke designs to complement your property — all built and installed by our team.",
     features: ["Victorian & Edwardian Styles", "Solid Roof Options", "Orangery Extensions", "Full Planning Guidance"],
   },

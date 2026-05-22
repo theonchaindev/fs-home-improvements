@@ -38,7 +38,7 @@ function useInView(threshold = 0.2) {
 const services = [
   { title: "Windows", description: "uPVC, aluminium and timber windows. Energy-efficient, secure and beautifully crafted to enhance any property.", href: "/services/windows", image: "/images/windows/white-casement-red-brick.jpg" },
   { title: "Doors", description: "Composite, French and patio doors that combine stunning aesthetics with maximum security and insulation.", href: "/services/doors", image: "/images/doors/anthracite-composite.jpg" },
-  { title: "Conservatories", description: "Custom conservatories and orangeries that seamlessly extend your living space with light and style.", href: "/services/conservatories", image: "" },
+  { title: "Conservatories", description: "Custom conservatories and orangeries that seamlessly extend your living space with light and style.", href: "/services/conservatories", image: "/images/conservatory-job.jpg" },
   { title: "Bi-Fold Doors", description: "Effortlessly connect your indoor and outdoor spaces with sleek, space-saving bi-fold door systems.", href: "/services/bifold-doors", image: "/images/bifold/anthracite-brick-topiary.jpg" },
   { title: "Roofline", description: "High-performance fascias, soffits and guttering that protect your home and elevate its appearance.", href: "/services/roofline", image: "/images/projects/kethis-bungalow-angle.jpg" },
 ];
