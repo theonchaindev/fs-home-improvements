@@ -45,15 +45,9 @@ const services = [
 
 const stats = [
   { value: 6, suffix: "+", label: "Years Experience" },
-  { value: 98, suffix: "%", label: "Customer Satisfaction" },
   { value: 10, suffix: " yr", label: "Guarantee" },
 ];
 
-const testimonials = [
-  { name: "Sarah Mitchell", location: "Cambridge", text: "FS Home Improvements transformed our home completely. The new windows and doors are stunning — the team were professional, tidy and efficient. Couldn't be happier.", service: "Windows & Doors", rating: 5 },
-  { name: "David Thompson", location: "Huntingdon", text: "The bi-fold doors they installed are absolutely incredible. Opens the whole back of the house up. The quality is exceptional and the price was very competitive.", service: "Bi-Fold Doors", rating: 5 },
-  { name: "Linda Barnes", location: "St Neots", text: "Our conservatory is just beautiful. FS Home Improvements guided us through every step of the design process and the finished result exceeded all expectations.", service: "Conservatory", rating: 5 },
-];
 
 const reasons = [
   { icon: <Shield size={22} />, title: "10-Year Guarantee", desc: "Every installation backed by our comprehensive decade-long guarantee." },
@@ -109,7 +103,6 @@ export default function Home() {
 
   const featuresRef = useInView();
   const servicesRef = useInView(0.05);
-  const testimonialsRef = useInView();
 
   return (
     <>
@@ -160,8 +153,8 @@ export default function Home() {
               className="mt-12 flex flex-wrap items-center gap-8"
               style={{ opacity: heroVisible ? 1 : 0, transition: "all 0.7s ease 0.5s" }}
             >
-              {[{ value: "6+", label: "Experience" }, { value: "10 yr", label: "Guarantee" }, { value: "5★", label: "Rated" }].map((s, i) => (
-                <div key={s.label} className={`text-center ${i < 2 ? "pr-8 border-r border-white/20" : ""}`}>
+              {[{ value: "6+", label: "Experience" }, { value: "10 yr", label: "Guarantee" }].map((s, i) => (
+                <div key={s.label} className={`text-center ${i < 1 ? "pr-8 border-r border-white/20" : ""}`}>
                   <div className="text-white font-black text-2xl">{s.value}</div>
                   <div className="text-white/50 text-xs mt-0.5 uppercase tracking-wide">{s.label}</div>
                 </div>
@@ -235,42 +228,8 @@ export default function Home() {
       <section className="py-24 bg-[#0A0A0A] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-2 gap-10 max-w-sm mx-auto">
             {stats.map((s) => <StatCard key={s.label} {...s} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="py-24 bg-white">
-        <div ref={testimonialsRef.ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16" style={{ opacity: testimonialsRef.inView ? 1 : 0, transform: testimonialsRef.inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.6s ease" }}>
-            <p className="text-[#85152C] text-sm font-bold uppercase tracking-[0.2em] mb-3">Customer Reviews</p>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">What Our Customers Say</h2>
-            <div className="flex items-center justify-center gap-1 mt-2">
-              {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />)}
-              <span className="text-gray-500 text-sm ml-2">5.0 average · 150+ reviews</span>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div
-                key={t.name}
-                className="bg-gray-50 rounded-xl p-7 relative"
-                style={{ opacity: testimonialsRef.inView ? 1 : 0, transform: testimonialsRef.inView ? "translateY(0)" : "translateY(30px)", transition: `all 0.6s ease ${i * 0.15}s` }}
-              >
-                <div className="absolute top-5 right-6 text-5xl text-[#85152C]/10 font-black leading-none select-none">&quot;</div>
-                <div className="flex mb-3">{[...Array(t.rating)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}</div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-5">{t.text}</p>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                  <div>
-                    <div className="font-bold text-gray-900 text-sm">{t.name}</div>
-                    <div className="text-gray-400 text-xs">{t.location}</div>
-                  </div>
-                  <span className="text-xs bg-[#85152C]/10 text-[#85152C] font-semibold px-3 py-1 rounded-full">{t.service}</span>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

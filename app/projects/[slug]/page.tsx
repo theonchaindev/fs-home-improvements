@@ -5,7 +5,7 @@ import { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { MapPin, Clock, ArrowRight, CheckCircle2, Star, ChevronLeft, ArrowLeft } from "lucide-react";
+import { Clock, ArrowRight, CheckCircle2, ChevronLeft, ArrowLeft } from "lucide-react";
 import { getProject, projects } from "@/lib/projects";
 import LeadForm from "@/components/LeadForm";
 
@@ -105,22 +105,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 ))}
               </div>
 
-              {/* Testimonial */}
-              {project.testimonial && (
-                <div className="bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] rounded-2xl p-8 relative overflow-hidden">
-                  <div className="absolute top-4 right-6 text-7xl text-white/5 font-black leading-none select-none">&quot;</div>
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={15} className="text-yellow-400 fill-yellow-400" />)}
-                  </div>
-                  <p className="text-white/80 text-lg leading-relaxed mb-5 italic">&quot;{project.testimonial.text}&quot;</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#85152C] rounded-full flex items-center justify-center text-white font-black text-sm">
-                      {project.testimonial.name[0]}
-                    </div>
-                    <span className="text-white/60 text-sm font-medium">{project.testimonial.name}</span>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Right — sidebar with lead form */}

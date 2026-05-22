@@ -103,12 +103,6 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-5 flex items-center gap-1.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
-              ))}
-              <span className="text-white/50 text-xs ml-1">5.0 · 150+ reviews</span>
-            </div>
           </div>
         </div>
       </div>

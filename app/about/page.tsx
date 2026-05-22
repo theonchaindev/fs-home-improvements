@@ -21,7 +21,7 @@ const values = [
   { icon: <Trophy size={20} />, title: "Quality First", desc: "We never cut corners. Every job is done to the highest possible standard, using premium products and materials." },
   { icon: <Heart size={20} />, title: "Customer Care", desc: "You're not just a job number — we build lasting relationships with every homeowner we work with." },
   { icon: <Users size={20} />, title: "Local Expertise", desc: "Proudly serving our local community. We know the area, we know the homes, and we care about the neighbourhood." },
-  { icon: <Star size={20} />, title: "Proven Results", desc: "An outstanding 98% customer satisfaction rating. Our work and our reviews speak for themselves." },
+  { icon: <Star size={20} />, title: "Proven Results", desc: "Hundreds of completed projects and a long list of happy customers. Our work speaks for itself." },
 ];
 
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-6">
-                {[{ value: "6+", label: "Years Experience" }, { value: "98%", label: "Satisfaction Rate" }, { value: "10yr", label: "Guarantee" }, { value: "5★", label: "Average Rating" }].map((s) => (
+                {[{ value: "6+", label: "Years Experience" }, { value: "10yr", label: "Guarantee" }].map((s) => (
                   <div key={s.label} className="border-l-2 border-[#85152C] pl-4">
                     <div className="text-2xl font-black text-gray-900">{s.value}</div>
                     <div className="text-gray-400 text-sm">{s.label}</div>
@@ -96,14 +96,6 @@ export default function AboutPage() {
                       <span className="text-white/70 text-sm">{item}</span>
                     </div>
                   ))}
-                </div>
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />)}
-                    </div>
-                    <span className="text-white/50 text-sm">5.0 average from 150+ reviews</span>
-                  </div>
                 </div>
               </div>
             </div>
