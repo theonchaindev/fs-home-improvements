@@ -76,7 +76,7 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-2.5">
-                {["Free, no-obligation survey", "No-pressure sales approach", "Transparent, itemised pricing", "Fully insured & FENSA registered", "10-year insurance-backed guarantee"].map((p) => (
+                {["Free, no-obligation survey", "No-pressure sales approach", "Transparent, itemised pricing", "10-year insurance-backed guarantee"].map((p) => (
                   <div key={p} className="flex items-center gap-3">
                     <CheckCircle2 size={16} className="text-[#85152C] shrink-0" />
                     <span className="text-gray-600 text-sm">{p}</span>
