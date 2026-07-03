@@ -222,6 +222,22 @@ export const projects: Project[] = [
     challenge: "Achieving a precise fit and clean finish against an uneven brick reveal on an older property.",
     result: "A standout entrance that perfectly suits the character of the property. The customer was over the moon with the result.",
   },
+  {
+    id: 12,
+    slug: "white-upvc-sliding-patio-doors",
+    title: "White uPVC Sliding Patio Doors",
+    location: "",
+    category: "Doors",
+    shortDescription: "White uPVC sliding patio doors fitted to a conservatory rear elevation — maximising light and creating seamless access to the garden.",
+    fullDescription: "The customer wanted to replace their existing rear access with a set of sliding patio doors that would open up the back of their conservatory and maximise the view into the garden. We supplied and fitted a white uPVC sliding patio door system with a large fixed light panel alongside the sliding door, delivering an expansive glass frontage with excellent thermal performance. The slim sightlines let in as much natural light as possible, and the smooth sliding mechanism makes everyday use effortless.",
+    image: "/images/doors/white-sliding-patio.jpeg",
+    galleryImages: [],
+    tags: ["uPVC", "White", "Sliding Patio", "Conservatory", "Patio Doors"],
+    scope: "Sliding patio door with fixed side panel — full rear elevation",
+    duration: "1 day",
+    challenge: "Fitting to an existing conservatory structure required careful measurement to ensure a perfect weathertight seal.",
+    result: "A bright, airy rear elevation that has transformed how the customer uses their conservatory and garden space.",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
