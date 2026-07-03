@@ -204,6 +204,24 @@ export const projects: Project[] = [
     challenge: "Ensuring a perfect colour-matched finish across two different window sizes and elevations.",
     result: "A striking, characterful exterior that the customer was delighted with — a real talking point on the street.",
   },
+  {
+    id: 11,
+    slug: "chartwell-green-upvc-door",
+    title: "Chartwell Green uPVC Stable Door",
+    location: "",
+    category: "Doors",
+    shortDescription: "Chartwell green uPVC stable door with glazed top panel fitted to a brick property — a fresh, characterful entrance.",
+    fullDescription: "The customer wanted a door that would make a statement and complement the natural surroundings of their property. We supplied and fitted a uPVC stable door in Chartwell green, complete with a glazed top panel to bring in natural light while keeping the lower section solid for security and practicality. The Chartwell green finish works beautifully against the red brick, giving the property a distinctive, timeless look. The stable door configuration is ideal for homes with pets or young children, providing ventilation and light without compromising security.",
+    image: "/images/doors/chartwell-green-stable-door.jpeg",
+    galleryImages: [
+      "/images/doors/chartwell-green-stable-door.jpeg",
+    ],
+    tags: ["uPVC", "Chartwell Green", "Stable Door", "Glazed Panel", "Colour Frame"],
+    scope: "Single stable door with glazed top panel and black hardware",
+    duration: "Half day",
+    challenge: "Achieving a precise fit and clean finish against an uneven brick reveal on an older property.",
+    result: "A standout entrance that perfectly suits the character of the property. The customer was over the moon with the result.",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
