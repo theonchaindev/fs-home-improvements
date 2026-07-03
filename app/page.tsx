@@ -203,6 +203,23 @@ export default function Home() {
 
       <GoogleReviews />
 
+      {/* AREAS */}
+      <section className="py-16 bg-[#0A0A0A]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-[#85152C] text-sm font-bold uppercase tracking-[0.2em] mb-3">Service Area</p>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-8">Areas we cover</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {["Cambridgeshire", "Bedfordshire", "Northamptonshire"].map((area) => (
+              <div key={area} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-6 py-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#85152C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span className="text-white font-semibold text-sm">{area}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-white/40 text-sm mt-6">Not sure if we cover your area? <a href="/contact" className="text-[#85152C] hover:underline">Get in touch</a> and we&apos;ll let you know.</p>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-24 bg-gray-50">
         <div ref={servicesRef.ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
