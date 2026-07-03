@@ -178,7 +178,9 @@ export default function Home() {
       {/* CHECKATRADE BANNER */}
       <div className="bg-[#0A0A0A] border-y border-white/10 py-6 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
-          <Image src="/checkatrade-logo.png" alt="Checkatrade Approved" width={120} height={120} className="h-14 w-auto object-contain" />
+          <div className="bg-white rounded-xl px-5 py-3 shrink-0">
+            <Image src="/checkatrade-logo.png" alt="Checkatrade Approved" width={160} height={60} className="h-10 w-auto object-contain" />
+          </div>
           <div className="hidden sm:block w-px h-10 bg-white/20" />
           <p className="text-white/70 text-sm text-center sm:text-left max-w-sm">
             We are a <span className="font-bold text-white">Checkatrade Approved Installer</span> — vetted, checked and trusted. Search FS Home Improvements on Checkatrade to read verified customer reviews.
