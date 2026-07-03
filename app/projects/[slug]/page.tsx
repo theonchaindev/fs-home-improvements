@@ -105,6 +105,20 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 ))}
               </div>
 
+              {/* Gallery */}
+              {project.galleryImages.length > 0 && (
+                <div>
+                  <h3 className="text-lg font-black text-gray-900 mb-4">Project Photos</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {project.galleryImages.map((img, i) => (
+                      <div key={i} className="relative aspect-square rounded-xl overflow-hidden bg-gray-100">
+                        <Image src={img} alt={`${project.title} photo ${i + 1}`} fill className="object-cover hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 50vw, 33vw" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
             </div>
 
             {/* Right — sidebar with lead form */}
