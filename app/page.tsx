@@ -176,32 +176,13 @@ export default function Home() {
       </section>
 
       {/* CHECKATRADE BANNER */}
-      <div className="bg-[#0a5c2e] py-5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-          <div className="flex items-center gap-3">
-            {/* Checkatrade tick badge */}
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shrink-0 shadow-md">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path d="M4 13l5 5L20 7" stroke="#0a5c2e" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <div>
-              <div className="text-white font-black text-lg leading-none">Checkatrade</div>
-              <div className="text-white/70 text-xs font-semibold uppercase tracking-wider">Approved Installer</div>
-            </div>
-          </div>
+      <div className="bg-[#0A0A0A] border-y border-white/10 py-6 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
+          <Image src="/checkatrade-logo.png" alt="Checkatrade Approved" width={120} height={120} className="h-14 w-auto object-contain" />
           <div className="hidden sm:block w-px h-10 bg-white/20" />
-          <p className="text-white/85 text-sm text-center sm:text-left max-w-sm">
-            Vetted, checked and approved. Search <span className="font-bold text-white">FS Home Improvements</span> on Checkatrade to read verified customer reviews.
+          <p className="text-white/70 text-sm text-center sm:text-left max-w-sm">
+            We are a <span className="font-bold text-white">Checkatrade Approved Installer</span> — vetted, checked and trusted. Search FS Home Improvements on Checkatrade to read verified customer reviews.
           </p>
-          <a
-            href="https://www.checkatrade.com/trades/fshomeimprovements"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 bg-white text-[#0a5c2e] font-bold px-5 py-2.5 rounded text-sm hover:bg-gray-100 transition-colors"
-          >
-            View Profile →
-          </a>
         </div>
       </div>
 
