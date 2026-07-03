@@ -3,8 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Star, Phone, Shield, Award, Clock, Wrench, ChevronRight, Play } from "lucide-react";
+import { ArrowRight, Phone, Shield, Award, Clock, Wrench, ChevronRight, Play } from "lucide-react";
 import VideoReel from "@/components/VideoReel";
+import GoogleReviews from "@/components/GoogleReviews";
 
 function useCountUp(target: number, duration = 2000, start = false) {
   const [count, setCount] = useState(0);
@@ -199,6 +200,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GoogleReviews />
 
       {/* SERVICES */}
       <section className="py-24 bg-gray-50">
