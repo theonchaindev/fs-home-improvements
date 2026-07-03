@@ -178,8 +178,8 @@ export default function Home() {
       {/* CHECKATRADE BANNER */}
       <div className="bg-[#0A0A0A] border-y border-white/10 py-6 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
-          <div className="bg-white rounded-xl px-5 py-3 shrink-0">
-            <Image src="/checkatrade-logo.png" alt="Checkatrade Approved" width={160} height={60} className="h-10 w-auto object-contain" />
+          <div className="bg-white rounded-xl px-6 py-4 shrink-0">
+            <Image src="/checkatrade-logo.png" alt="Checkatrade Approved" width={280} height={100} className="h-20 w-auto object-contain" />
           </div>
           <div className="hidden sm:block w-px h-10 bg-white/20" />
           <p className="text-white/70 text-sm text-center sm:text-left max-w-sm">
