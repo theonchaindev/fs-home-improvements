@@ -193,6 +193,8 @@ export const projects: Project[] = [
     fullDescription: "The customer wanted to move away from standard white frames and opted for Chartwell green uPVC — a colour that works beautifully against red brick. We supplied and fitted a triple casement window to the front elevation and a matching smaller window to the side, both A-rated double glazed for excellent thermal performance. The result is a property that really stands out while remaining tasteful and timeless.",
     image: "/images/windows/chartwell-green-triple.jpeg",
     galleryImages: [
+      "/images/windows/chartwell-green-open.jpeg",
+      "/images/windows/chartwell-green-double.jpeg",
       "/images/windows/chartwell-green-small.jpeg",
       "/images/windows/chartwell-green-small-2.jpeg",
     ],
