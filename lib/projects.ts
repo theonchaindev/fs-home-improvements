@@ -238,6 +238,24 @@ export const projects: Project[] = [
     challenge: "Fitting to an existing conservatory structure required careful measurement to ensure a perfect weathertight seal.",
     result: "A bright, airy rear elevation that has transformed how the customer uses their conservatory and garden space.",
   },
+  {
+    id: 13,
+    slug: "white-a-rated-upvc-windows",
+    title: "White A-Rated uPVC Windows",
+    location: "",
+    category: "Windows",
+    shortDescription: "Full property window replacement with white A-rated uPVC casement windows — clean, modern and energy efficient throughout.",
+    fullDescription: "The customer wanted to replace all of the windows across their property with modern, thermally efficient units. We supplied and fitted white A-rated uPVC casement windows throughout, including a top-hung obscure glazed unit to the bathroom. Every window was fitted with A-rated double glazing for outstanding thermal performance and noise reduction. The clean white frames have completely refreshed the look of the property and the homeowner noticed an immediate improvement in warmth and reduction in draughts.",
+    image: "/images/windows/white-arated-full-house.jpeg",
+    galleryImages: [
+      "/images/windows/white-arated-closeup.jpeg",
+    ],
+    tags: ["uPVC", "White", "A-Rated", "Casement", "Full Property", "Obscure Glazing"],
+    scope: "Full property — multiple white A-rated uPVC casement windows",
+    duration: "2 days",
+    challenge: "Coordinating a full property replacement in minimal time to reduce disruption to the homeowner.",
+    result: "A completely refreshed exterior with a significant improvement in warmth, draught reduction and energy efficiency.",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
