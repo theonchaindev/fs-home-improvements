@@ -183,6 +183,25 @@ export const projects: Project[] = [
     result: "A show-stopping installation that has been the subject of multiple planning enquiries from neighbours.",
     testimonial: { text: "Absolutely jaw-dropping. Every time we open them fully it takes your breath away. FS Home Improvements are the best.", name: "David & Karen T., Peterborough" },
   },
+  {
+    id: 10,
+    slug: "chartwell-green-upvc-windows",
+    title: "Chartwell Green uPVC Windows",
+    location: "",
+    category: "Windows",
+    shortDescription: "Chartwell green uPVC casement windows fitted to a brick property — a striking colour choice that completely lifts the exterior.",
+    fullDescription: "The customer wanted to move away from standard white frames and opted for Chartwell green uPVC — a colour that works beautifully against red brick. We supplied and fitted a triple casement window to the front elevation and a matching smaller window to the side, both A-rated double glazed for excellent thermal performance. The result is a property that really stands out while remaining tasteful and timeless.",
+    image: "/images/windows/chartwell-green-triple.jpeg",
+    galleryImages: [
+      "/images/windows/chartwell-green-small.jpeg",
+      "/images/windows/chartwell-green-small-2.jpeg",
+    ],
+    tags: ["uPVC", "Chartwell Green", "Casement", "A-Rated", "Colour Frame"],
+    scope: "Triple casement window + small side casement window",
+    duration: "1 day",
+    challenge: "Ensuring a perfect colour-matched finish across two different window sizes and elevations.",
+    result: "A striking, characterful exterior that the customer was delighted with — a real talking point on the street.",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
