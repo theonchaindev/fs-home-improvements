@@ -1,10 +1,23 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/breadcrumbs";
+import { faqSchema } from "@/lib/faq";
 
-export const metadata = { title: "Conservatories & Orangeries | FS Home Improvements", description: "Bespoke conservatories and orangeries designed and installed for your home. Free design consultation." };
+export const metadata = { title: "Conservatories & Orangeries in Cambridgeshire", description: "Bespoke conservatories and orangeries designed and installed across Cambridgeshire, Bedfordshire and Northamptonshire. Free design consultation.", alternates: { canonical: "/services/conservatories" } };
 
 export default function ServatoriesPage() {
+  const faqs = [
+    { q: "Do I need planning permission for a conservatory?", a: "Most conservatories fall within permitted development rights and don't require planning permission. There are size and position restrictions though, and we'll check your specific situation during a free home survey." },
+    { q: "Can I use a conservatory all year round?", a: "With the right roof and glazing, yes. Our solid roof and thermally efficient glazing options are specifically designed for year-round comfort. A traditional polycarbonate roof won't achieve this, but we have much better solutions." },
+    { q: "How long does installation take?", a: "Most projects are completed in 5–10 working days depending on the size and complexity of the structure. We'll provide a detailed timeline after your design consultation." },
+    { q: "What's the difference between a conservatory and an orangery?", a: "A conservatory is predominantly glass. An orangery features more substantial brick or rendered walls with a central glass lantern roof — it feels more like a genuine room extension." },
+  ];
+
   return (
-    <ServicePageTemplate
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Conservatories", path: "/services/conservatories" }])} />
+      <JsonLd data={faqSchema(faqs)} />
+      <ServicePageTemplate
       title="Conservatories"
       subtitle="Beautiful Living Space Extensions"
       icon="🏡"
@@ -33,13 +46,9 @@ export default function ServatoriesPage() {
         { title: "Solid Roof Conservatory", desc: "Transform an existing or new conservatory with a solid tiled roof for year-round use and better energy efficiency." },
         { title: "Garden Room", desc: "A fully insulated, plastered garden room that feels like a genuine part of the house — not an add-on." },
       ]}
-      faqs={[
-        { q: "Do I need planning permission for a conservatory?", a: "Most conservatories fall within permitted development rights and don't require planning permission. There are size and position restrictions though, and we'll check your specific situation during a free home survey." },
-        { q: "Can I use a conservatory all year round?", a: "With the right roof and glazing, yes. Our solid roof and thermally efficient glazing options are specifically designed for year-round comfort. A traditional polycarbonate roof won't achieve this, but we have much better solutions." },
-        { q: "How long does installation take?", a: "Most projects are completed in 5–10 working days depending on the size and complexity of the structure. We'll provide a detailed timeline after your design consultation." },
-        { q: "What's the difference between a conservatory and an orangery?", a: "A conservatory is predominantly glass. An orangery features more substantial brick or rendered walls with a central glass lantern roof — it feels more like a genuine room extension." },
-      ]}
+      faqs={faqs}
       heroImage="/images/conservatory-job.jpg"
-    />
+      />
+    </>
   );
 }

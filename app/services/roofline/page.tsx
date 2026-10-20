@@ -1,10 +1,23 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/breadcrumbs";
+import { faqSchema } from "@/lib/faq";
 
-export const metadata = { title: "Roofline | FS Home Improvements", description: "Professional fascia, soffit and guttering replacement. Protect your home and enhance its appearance." };
+export const metadata = { title: "Fascias, Soffits & Guttering in Cambridgeshire", description: "Professional fascia, soffit and guttering replacement across Cambridgeshire, Bedfordshire and Northamptonshire. Protect your home and enhance its appearance.", alternates: { canonical: "/services/roofline" } };
 
 export default function RooflinePage() {
+  const faqs = [
+    { q: "How do I know if my fascias need replacing?", a: "Signs include flaking paint, cracks, soft spots when pressed (indicates rot), gaps at joints, leaking gutters and birds nesting in the roof void. Any of these suggest it's time for a replacement." },
+    { q: "Can you cap over existing fascias?", a: "In some cases yes — if the existing timber is still sound, we can cap over with uPVC. However, we always recommend full removal and replacement to ensure any hidden rot is treated and the job is done properly." },
+    { q: "How long does roofline installation take?", a: "Most standard semi-detached properties can be completed in a single day. Larger detached homes may take two days. We'll always give you a clear estimate when we provide your quote." },
+    { q: "What colours are available?", a: "We offer white, black, anthracite grey, woodgrain foiled and a range of other colours. Most of our customers choose white or anthracite grey for a clean, modern finish." },
+  ];
+
   return (
-    <ServicePageTemplate
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Roofline", path: "/services/roofline" }])} />
+      <JsonLd data={faqSchema(faqs)} />
+      <ServicePageTemplate
       title="Roofline"
       subtitle="Fascias, Soffits & Guttering"
       icon="🏠"
@@ -33,17 +46,13 @@ export default function RooflinePage() {
         { title: "Square/Ogee Guttering", desc: "Modern square and decorative ogee profiles available in black, white and anthracite for a contemporary look." },
         { title: "Cast Iron-Effect Guttering", desc: "The aesthetic of traditional cast iron without the weight, cost and maintenance. Perfect for period properties." },
       ]}
-      faqs={[
-        { q: "How do I know if my fascias need replacing?", a: "Signs include flaking paint, cracks, soft spots when pressed (indicates rot), gaps at joints, leaking gutters and birds nesting in the roof void. Any of these suggest it's time for a replacement." },
-        { q: "Can you cap over existing fascias?", a: "In some cases yes — if the existing timber is still sound, we can cap over with uPVC. However, we always recommend full removal and replacement to ensure any hidden rot is treated and the job is done properly." },
-        { q: "How long does roofline installation take?", a: "Most standard semi-detached properties can be completed in a single day. Larger detached homes may take two days. We'll always give you a clear estimate when we provide your quote." },
-        { q: "What colours are available?", a: "We offer white, black, anthracite grey, woodgrain foiled and a range of other colours. Most of our customers choose white or anthracite grey for a clean, modern finish." },
-      ]}
+      faqs={faqs}
       heroImage="/images/projects/kethis-bungalow-angle.jpg"
       galleryImages={[
         "/images/projects/kethis-bungalow-full.jpg",
         "/images/projects/showcase-large-house.jpg",
       ]}
-    />
+      />
+    </>
   );
 }

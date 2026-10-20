@@ -1,10 +1,23 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/breadcrumbs";
+import { faqSchema } from "@/lib/faq";
 
-export const metadata = { title: "Windows | FS Home Improvements", description: "Energy-efficient uPVC, aluminium and timber windows. Expert installation with a 10-year guarantee." };
+export const metadata = { title: "uPVC & Aluminium Windows in Cambridgeshire", description: "Energy-efficient uPVC, aluminium and timber windows installed across Cambridgeshire, Bedfordshire and Northamptonshire. Expert fitting with a 10-year guarantee.", alternates: { canonical: "/services/windows" } };
 
 export default function WindowsPage() {
+  const faqs = [
+    { q: "How long does window installation take?", a: "Most installations are completed in a single day. Larger projects with bay windows or multiple storeys may take two days. We'll always give you a clear timeline upfront." },
+    { q: "Do I need planning permission for new windows?", a: "In most cases, no. Replacing like-for-like windows in the same style and material doesn't require planning permission. We can advise if your property is listed or in a conservation area." },
+    { q: "What is the best type of window for energy efficiency?", a: "Triple glazed A++-rated windows offer the best thermal performance. For most homes, A-rated double glazing provides excellent efficiency at a more accessible price point." },
+    { q: "How much do new windows cost?", a: "Costs vary based on size, style, material and number of windows. We offer free, transparent quotes with no hidden extras. Contact us for a personalised estimate." },
+  ];
+
   return (
-    <ServicePageTemplate
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Windows", path: "/services/windows" }])} />
+      <JsonLd data={faqSchema(faqs)} />
+      <ServicePageTemplate
       title="Windows"
       subtitle="Expert Window Installation"
       icon="🪟"
@@ -33,12 +46,7 @@ export default function WindowsPage() {
         { title: "Aluminium Windows", desc: "Slimline aluminium frames for a contemporary look with maximum glass area and outstanding durability." },
         { title: "Timber Windows", desc: "Beautiful natural timber frames with the warmth and character that only real wood can provide." },
       ]}
-      faqs={[
-        { q: "How long does window installation take?", a: "Most installations are completed in a single day. Larger projects with bay windows or multiple storeys may take two days. We'll always give you a clear timeline upfront." },
-        { q: "Do I need planning permission for new windows?", a: "In most cases, no. Replacing like-for-like windows in the same style and material doesn't require planning permission. We can advise if your property is listed or in a conservation area." },
-        { q: "What is the best type of window for energy efficiency?", a: "Triple glazed A++-rated windows offer the best thermal performance. For most homes, A-rated double glazing provides excellent efficiency at a more accessible price point." },
-        { q: "How much do new windows cost?", a: "Costs vary based on size, style, material and number of windows. We offer free, transparent quotes with no hidden extras. Contact us for a personalised estimate." },
-      ]}
+      faqs={faqs}
       heroImage="/images/windows/white-casement-red-brick.jpg"
       galleryImages={[
         "/images/windows/victorian-sash-red-door.jpg",
@@ -47,6 +55,7 @@ export default function WindowsPage() {
         "/images/windows/casement-rendered-house.jpg",
         "/images/windows/sage-green-install.jpg",
       ]}
-    />
+      />
+    </>
   );
 }

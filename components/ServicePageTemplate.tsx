@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import LeadForm from "./LeadForm";
+import { altFor } from "@/lib/imageAlts";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -116,14 +117,14 @@ export default function ServicePageTemplate({ title, subtitle, description, icon
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-2 relative h-80 md:h-[420px] rounded-2xl overflow-hidden">
-                <Image src={heroImage} alt={`${title} installation`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 66vw" />
+                <Image src={heroImage} alt={altFor(heroImage, `${title} installation`)} fill className="object-cover" sizes="(max-width: 768px) 100vw, 66vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#85152C] text-white text-xs font-bold px-3 py-1.5 rounded-full">Featured Project</div>
               </div>
               <div className="flex flex-col gap-4">
                 {(galleryImages ?? []).slice(0, 2).map((img, i) => (
                   <div key={i} className="relative flex-1 rounded-2xl overflow-hidden min-h-[120px]">
-                    <Image src={img} alt={`${title} project ${i + 2}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                    <Image src={img} alt={altFor(img, `${title} project ${i + 2}`)} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
                 ))}
               </div>
@@ -132,7 +133,7 @@ export default function ServicePageTemplate({ title, subtitle, description, icon
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                 {(galleryImages ?? []).slice(2).map((img, i) => (
                   <div key={i} className="relative h-40 rounded-xl overflow-hidden">
-                    <Image src={img} alt={`${title} project ${i + 4}`} fill className="object-cover" sizes="25vw" />
+                    <Image src={img} alt={altFor(img, `${title} project ${i + 4}`)} fill className="object-cover" sizes="25vw" />
                   </div>
                 ))}
               </div>

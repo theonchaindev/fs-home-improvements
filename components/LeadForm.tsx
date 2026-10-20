@@ -19,13 +19,30 @@ export default function LeadForm({
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, service, page: window.location.pathname }),
+      });
+      if (!res.ok) throw new Error("delivery failed");
+      setSubmitted(true);
+      // Surface the lead to GTM / Google Ads
+      (window as unknown as { dataLayer?: object[] }).dataLayer?.push({
+        event: "lead_form_submit",
+        lead_service: service,
+      });
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass = `w-full px-4 py-3 rounded text-sm outline-none transition-all border focus:border-[#85152C] ${
@@ -119,6 +136,12 @@ export default function LeadForm({
             "Get Free Quote →"
           )}
         </button>
+        {error && (
+          <p className="text-sm text-center font-semibold text-[#E0654F]">
+            Sorry — something went wrong sending your enquiry. Please try again, or call us on{" "}
+            <a href="tel:+447412027802" className="underline">07412 027802</a>.
+          </p>
+        )}
         <p className={`text-xs text-center ${dark ? "text-white/30" : "text-gray-400"}`}>
           By submitting you agree to be contacted regarding your enquiry.
         </p>

@@ -1,10 +1,23 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/breadcrumbs";
+import { faqSchema } from "@/lib/faq";
 
-export const metadata = { title: "Bi-Fold Doors | FS Home Improvements", description: "Stunning aluminium bi-fold doors that open your home to the outside. Expert installation with 10-year guarantee." };
+export const metadata = { title: "Aluminium Bi-Fold Doors in Cambridgeshire", description: "Slim-frame aluminium bi-fold doors installed across Cambridgeshire, Bedfordshire and Northamptonshire. Open your home to the garden — 10-year guarantee.", alternates: { canonical: "/services/bifold-doors" } };
 
 export default function BifoldDoorsPage() {
+  const faqs = [
+    { q: "How wide can bi-fold doors be?", a: "Our bi-fold door systems can span up to 6 metres across, with configurations of 2 to 7 panels. The maximum width depends on the number of panels chosen." },
+    { q: "Are bi-fold doors secure?", a: "Yes. Our bi-fold doors feature multi-point locking systems on each panel, toughened safety glass and shoot-bolt top and bottom locks. They're as secure as any other door system." },
+    { q: "Can bi-fold doors be fitted in winter?", a: "Yes — we install bi-fold doors year-round. We take every precaution to minimise disruption during installation and ensure your home is secure and weathertight throughout the process." },
+    { q: "Do I need planning permission for bi-fold doors?", a: "In most cases, replacing an existing opening with bi-fold doors doesn't require planning permission. Creating a new opening may require approval — we'll advise you fully during your free survey." },
+  ];
+
   return (
-    <ServicePageTemplate
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Bi-Fold Doors", path: "/services/bifold-doors" }])} />
+      <JsonLd data={faqSchema(faqs)} />
+      <ServicePageTemplate
       title="Bi-Fold Doors"
       subtitle="Open Up Your Home"
       icon="🔲"
@@ -33,17 +46,13 @@ export default function BifoldDoorsPage() {
         { title: "Traffic Door Option", desc: "Include a single hinged door within the bi-fold configuration for convenient everyday use without opening all panels." },
         { title: "Corner Bi-Fold", desc: "Advanced corner post-free configurations that open two walls simultaneously for the ultimate indoor-outdoor experience." },
       ]}
-      faqs={[
-        { q: "How wide can bi-fold doors be?", a: "Our bi-fold door systems can span up to 6 metres across, with configurations of 2 to 7 panels. The maximum width depends on the number of panels chosen." },
-        { q: "Are bi-fold doors secure?", a: "Yes. Our bi-fold doors feature multi-point locking systems on each panel, toughened safety glass and shoot-bolt top and bottom locks. They're as secure as any other door system." },
-        { q: "Can bi-fold doors be fitted in winter?", a: "Yes — we install bi-fold doors year-round. We take every precaution to minimise disruption during installation and ensure your home is secure and weathertight throughout the process." },
-        { q: "Do I need planning permission for bi-fold doors?", a: "In most cases, replacing an existing opening with bi-fold doors doesn't require planning permission. Creating a new opening may require approval — we'll advise you fully during your free survey." },
-      ]}
+      faqs={faqs}
       heroImage="/images/bifold/anthracite-brick-topiary.jpg"
       galleryImages={[
         "/images/bifold/anthracite-white-render.jpg",
         "/images/projects/detached-oak-porch.jpg",
       ]}
-    />
+      />
+    </>
   );
 }

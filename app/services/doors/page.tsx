@@ -1,10 +1,23 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/breadcrumbs";
+import { faqSchema } from "@/lib/faq";
 
-export const metadata = { title: "Doors | FS Home Improvements", description: "Composite, bi-fold, French and patio doors. Stunning security doors installed with a 10-year guarantee." };
+export const metadata = { title: "Composite & Patio Doors in Cambridgeshire", description: "Composite, French and patio doors installed across Cambridgeshire, Bedfordshire and Northamptonshire. Secure, stylish doors with a 10-year guarantee.", alternates: { canonical: "/services/doors" } };
 
 export default function DoorsPage() {
+  const faqs = [
+    { q: "How long does door installation take?", a: "Most door installations are completed within a few hours on the same day. We'll remove your old door, fit the frame, hang the new door and ensure everything is perfectly sealed before we leave." },
+    { q: "Are composite doors more secure than uPVC?", a: "Composite doors offer a higher level of security due to their solid foam core and tougher outer skin. Both types feature multi-point locking, but composite is the preferred choice for front doors." },
+    { q: "Can I choose my own colour and glass design?", a: "Absolutely. We offer hundreds of colour combinations and glass panel designs so you can create a door that's completely personalised to your home." },
+    { q: "Do you install cat flaps or letterboxes?", a: "Yes — we can add letterboxes, cat flaps, door knockers and a wide range of hardware as part of your installation." },
+  ];
+
   return (
-    <ServicePageTemplate
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Doors", path: "/services/doors" }])} />
+      <JsonLd data={faqSchema(faqs)} />
+      <ServicePageTemplate
       title="Doors"
       subtitle="Beautiful, Secure Door Installation"
       icon="🚪"
@@ -33,18 +46,14 @@ export default function DoorsPage() {
         { title: "Back Doors", desc: "Durable, secure uPVC or composite back doors in a range of styles to suit any property." },
         { title: "Side & Porch Doors", desc: "Complete your entrance with a matching side or porch door that blends seamlessly with your main door." },
       ]}
-      faqs={[
-        { q: "How long does door installation take?", a: "Most door installations are completed within a few hours on the same day. We'll remove your old door, fit the frame, hang the new door and ensure everything is perfectly sealed before we leave." },
-        { q: "Are composite doors more secure than uPVC?", a: "Composite doors offer a higher level of security due to their solid foam core and tougher outer skin. Both types feature multi-point locking, but composite is the preferred choice for front doors." },
-        { q: "Can I choose my own colour and glass design?", a: "Absolutely. We offer hundreds of colour combinations and glass panel designs so you can create a door that's completely personalised to your home." },
-        { q: "Do you install cat flaps or letterboxes?", a: "Yes — we can add letterboxes, cat flaps, door knockers and a wide range of hardware as part of your installation." },
-      ]}
+      faqs={faqs}
       heroImage="/images/doors/anthracite-composite.jpg"
       galleryImages={[
         "/images/doors/sage-green-composite.jpg",
         "/images/doors/white-composite-glazed.jpg",
         "/images/doors/white-stable.jpg",
       ]}
-    />
+      />
+    </>
   );
 }

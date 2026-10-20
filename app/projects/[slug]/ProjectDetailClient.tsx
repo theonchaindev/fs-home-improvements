@@ -1,0 +1,214 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { Clock, ArrowRight, CheckCircle2, ChevronLeft, ArrowLeft } from "lucide-react";
+import { getProject, projects } from "@/lib/projects";
+import LeadForm from "@/components/LeadForm";
+import { altFor } from "@/lib/imageAlts";
+
+function useInView(threshold = 0.1) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true); }, { threshold });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
+
+export default function ProjectDetailClient({ slug }: { slug: string }) {
+  const project = getProject(slug);
+
+  if (!project) return notFound();
+
+  const [heroVisible, setHeroVisible] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setHeroVisible(true), 100); return () => clearTimeout(t); }, []);
+
+  const contentRef = useInView();
+  const relatedRef = useInView();
+
+  const related = projects.filter((p) => p.slug !== slug && p.category === project.category).slice(0, 2);
+
+  return (
+    <>
+      {/* Hero with full image */}
+      <section className="relative bg-[#0A0A0A] pt-28 overflow-hidden">
+        <div className="relative h-[55vh] min-h-[400px]">
+          <Image
+            src={project.image}
+            alt={altFor(project.image, project.location ? `${project.title}, ${project.location}` : project.title)}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/20 to-[#0A0A0A]/60" />
+
+          {/* Category badge */}
+          <div className="absolute top-6 left-6">
+            <span className="bg-[#85152C] text-white text-xs font-bold px-3 py-1.5 rounded-full">{project.category}</span>
+          </div>
+        </div>
+
+        {/* Title block */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div
+            style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(20px)", transition: "all 0.6s ease 0.2s" }}
+          >
+            <Link href="/projects" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-6 transition-colors">
+              <ArrowLeft size={14} /> Back to Projects
+            </Link>
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{project.title}</h1>
+            <div className="flex flex-wrap items-center gap-6 text-white/60 text-sm">
+              <span className="flex items-center gap-1.5"><Clock size={13} />Completed in {project.duration}</span>
+              <span className="text-white/30">|</span>
+              <span>{project.scope}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main content */}
+      <section className="py-16 bg-white">
+        <div ref={contentRef.ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Left — story */}
+            <div
+              className="lg:col-span-2"
+              style={{ opacity: contentRef.inView ? 1 : 0, transform: contentRef.inView ? "translateX(0)" : "translateX(-20px)", transition: "all 0.6s ease" }}
+            >
+              <h2 className="text-2xl font-black text-gray-900 mb-5">About this project</h2>
+              <p className="text-gray-600 leading-relaxed text-lg mb-8">{project.fullDescription}</p>
+
+              <div className="grid sm:grid-cols-2 gap-5 mb-8">
+                <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                  <div className="text-[#85152C] text-xs font-bold uppercase tracking-wider mb-2">The Challenge</div>
+                  <p className="text-gray-600 text-sm leading-relaxed">{project.challenge}</p>
+                </div>
+                <div className="bg-[#0A0A0A] rounded-xl p-6">
+                  <div className="text-[#85152C] text-xs font-bold uppercase tracking-wider mb-2">The Result</div>
+                  <p className="text-white/70 text-sm leading-relaxed">{project.result}</p>
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {project.tags.map((t) => (
+                  <span key={t} className="bg-[#85152C]/8 text-[#85152C] font-semibold text-xs px-4 py-1.5 rounded-full border border-[#85152C]/15">{t}</span>
+                ))}
+              </div>
+
+              {/* Gallery */}
+              {project.galleryImages.length > 0 && (
+                <div>
+                  <h3 className="text-lg font-black text-gray-900 mb-4">Project Photos</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {project.galleryImages.map((img, i) => (
+                      <div key={i} className="relative aspect-square rounded-xl overflow-hidden bg-gray-100">
+                        <Image src={img} alt={altFor(img, `${project.title} photo ${i + 1}`)} fill className="object-cover hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 50vw, 33vw" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+
+            {/* Right — sidebar with lead form */}
+            <div
+              style={{ opacity: contentRef.inView ? 1 : 0, transform: contentRef.inView ? "translateX(0)" : "translateX(20px)", transition: "all 0.6s ease 0.2s" }}
+            >
+              <div className="sticky top-28 space-y-6">
+                <div className="bg-[#0A0A0A] rounded-2xl overflow-hidden">
+                  <LeadForm
+                    service={project.category}
+                    title={`Interested in ${project.category}?`}
+                    subtitle="Get a free quote for your own project."
+                    dark={true}
+                  />
+                </div>
+
+                <div className="border border-gray-100 rounded-xl p-6">
+                  <h3 className="font-bold text-gray-900 mb-4 text-sm">Project Summary</h3>
+                  <div className="space-y-3">
+                    {[
+                      { label: "Service", value: project.category },
+                      { label: "Duration", value: project.duration },
+                      { label: "Scope", value: project.scope },
+                    ].map((row) => (
+                      <div key={row.label} className="flex justify-between items-start gap-3">
+                        <span className="text-gray-400 text-xs uppercase tracking-wide font-semibold shrink-0">{row.label}</span>
+                        <span className="text-gray-800 text-sm text-right">{row.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 pt-5 border-t border-gray-100">
+                    {[
+                      "10-Year Guarantee",
+                      "Fully Insured",
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-2 mb-2">
+                        <CheckCircle2 size={14} className="text-[#85152C]" />
+                        <span className="text-gray-600 text-xs">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related projects */}
+      {related.length > 0 && (
+        <section className="py-16 bg-gray-50">
+          <div ref={relatedRef.ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              className="mb-10"
+              style={{ opacity: relatedRef.inView ? 1 : 0, transform: relatedRef.inView ? "translateY(0)" : "translateY(20px)", transition: "all 0.5s ease" }}
+            >
+              <p className="text-[#85152C] text-sm font-bold uppercase tracking-[0.2em] mb-2">More Like This</p>
+              <h2 className="text-3xl font-black text-gray-900">Related {project.category} Projects</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {related.map((p, i) => (
+                <Link
+                  href={`/projects/${p.slug}`}
+                  key={p.id}
+                  className="group rounded-2xl overflow-hidden border border-gray-100 hover:border-[#85152C]/20 hover:shadow-xl transition-all duration-400 bg-white"
+                  style={{ opacity: relatedRef.inView ? 1 : 0, transform: relatedRef.inView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 0.1}s` }}
+                >
+                  <div className="relative h-52 overflow-hidden bg-[#1A1A1A]">
+                    <Image src={p.image} alt={altFor(p.image, p.location ? `${p.title}, ${p.location}` : p.title)} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 50vw" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-gray-900 group-hover:text-[#85152C] transition-colors mb-1">{p.title}</h3>
+                    <p className="text-gray-500 text-sm line-clamp-1 mb-3">{p.shortDescription}</p>
+                    <span className="text-[#85152C] text-sm font-semibold flex items-center gap-1">
+                      View Project <ArrowRight size={13} />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <Link href="/projects" className="inline-flex items-center gap-2 border border-gray-300 hover:border-[#85152C] text-gray-700 hover:text-[#85152C] font-semibold px-8 py-4 rounded transition-all">
+                <ChevronLeft size={15} /> All Projects
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+    </>
+  );
+}
