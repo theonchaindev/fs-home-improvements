@@ -26,12 +26,30 @@ export default function LeadForm({
     setLoading(true);
     setError(false);
     try {
-      const res = await fetch("/api/lead", {
+      // Deliver from the browser — FormSubmit blocks requests from server IPs.
+      const res = await fetch("https://formsubmit.co/ajax/fshomeimprovements@hotmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `New quote request — ${service} — ${form.name}`,
+          _template: "table",
+          _captcha: "false",
+          Name: form.name,
+          Phone: form.phone,
+          Email: form.email,
+          Service: service,
+          Message: form.message.trim() || "(none)",
+          "Sent from": window.location.pathname,
+        }),
+      });
+      const body = (await res.json().catch(() => null)) as { success?: string | boolean } | null;
+      if (!res.ok || String(body?.success) !== "true") throw new Error("delivery failed");
+      // Backup server-side log — fire and forget.
+      fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, service, page: window.location.pathname }),
-      });
-      if (!res.ok) throw new Error("delivery failed");
+        body: JSON.stringify({ ...form, service, page: window.location.pathname, logOnly: true }),
+      }).catch(() => {});
       setSubmitted(true);
       // Surface the lead to GTM / Google Ads
       (window as unknown as { dataLayer?: object[] }).dataLayer?.push({

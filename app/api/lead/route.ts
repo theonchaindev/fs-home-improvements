@@ -10,6 +10,7 @@ export async function POST(req: Request) {
     message?: string;
     service?: string;
     page?: string;
+    logOnly?: boolean;
   };
   try {
     data = await req.json();
@@ -28,6 +29,12 @@ export async function POST(req: Request) {
     "LEAD",
     JSON.stringify({ name, email, phone, message, service, page, at: new Date().toISOString() })
   );
+
+  // Browser-side delivery already happened (FormSubmit blocks server IPs,
+  // so the form submits directly and calls this route just for the log).
+  if (data.logOnly) {
+    return NextResponse.json({ ok: true });
+  }
 
   try {
     const res = await fetch(`https://formsubmit.co/ajax/${DELIVERY_EMAIL}`, {
